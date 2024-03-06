@@ -45,6 +45,7 @@ class _ScanScreenState extends State<ScanScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            /// -- Title Bar
             Padding(
               padding: EdgeInsets.only(top: height / 15, left: width / 30),
               child: Row(
@@ -77,201 +78,211 @@ class _ScanScreenState extends State<ScanScreen> {
               ),
             ),
             SizedBox(height: height / 50),
+
+            /// -- Camera
+            _buildCamera(),
+
+            /// -- Slide
+            _buildSlide()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCamera() {
+    return Padding(
+      padding: EdgeInsets.only(left: width / 30, right: width / 30),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(width: 1, color: greydark),
+          borderRadius: BorderRadius.circular(0),
+        ),
+        height: height / 1.8,
+        // width: width / 1.2,
+        child: StreamBuilder<Object>(
+            stream: null,
+            builder: (context, snapshot) {
+              return Stack(
+                children: [
+                  buildQrView(context),
+                ],
+              );
+            }),
+      ),
+    );
+  }
+
+  Widget _buildSlide() {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: width / 30, right: width / 30, top: height / 25),
+      child: Container(
+        height: height / 6,
+        decoration: BoxDecoration(
+          border: Border.all(width: 1, color: Colors.grey.withOpacity(0.2)),
+          borderRadius: BorderRadius.circular(10),
+          color: a,
+        ),
+        child: Stack(
+          children: [
             Padding(
-              padding: EdgeInsets.only(left: width / 30, right: width / 30),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: greydark),
-                  borderRadius: BorderRadius.circular(0),
-                ),
-                height: height / 1.8,
-                // width: width / 1.2,
-                child: StreamBuilder<Object>(
-                    stream: null,
-                    builder: (context, snapshot) {
-                      return Stack(
-                        children: [
-                          buildQrView(context),
-                        ],
-                      );
-                    }),
+              padding: EdgeInsets.only(top: height / 65),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: width / 40),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: height / 12,
+                          width: width / 5.5,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQly97ryJANqdppmJmvJwQDppRTd_-pxx9KoQ&usqp=CAU.jpg"),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: height / 90),
+                        Container(
+                          height: height / 30,
+                          width: width / 5.5,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            gradient: const LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.lightBlueAccent,
+                                Colors.cyanAccent,
+                              ],
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              CustomStrings.open,
+                              style: TextStyle(
+                                fontFamily: 'Gilroy Medium',
+                                fontSize: width / 25,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(left: width / 40, bottom: height / 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              CustomStrings.qrstation,
+                              style: TextStyle(
+                                fontFamily: 'Gilroy Medium',
+                                fontSize: width / 21,
+                                color: lightColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              size: width / 25,
+                              color: greydark,
+                            ),
+                            Text(
+                              CustomStrings.qrstation,
+                              style: TextStyle(
+                                fontFamily: 'Gilroy Medium',
+                                fontSize: width / 24,
+                                color: greydark,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.directions,
+                              size: width / 24,
+                              color: greydark,
+                            ),
+                            Text(
+                              CustomStrings.qraddress,
+                              style: TextStyle(
+                                fontFamily: 'Gilroy Medium',
+                                fontSize: width / 25,
+                                color: greydark,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.charging_station,
+                              size: width / 24,
+                              color: greydark,
+                            ),
+                            Text(
+                              CustomStrings.qrlocation,
+                              style: TextStyle(
+                                fontFamily: 'Gilroy Medium',
+                                fontSize: width / 25,
+                                color: greydark,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  left: width / 30, right: width / 30, top: height / 25),
-              child: Container(
-                height: height / 6,
-                decoration: BoxDecoration(
-                  border:
-                      Border.all(width: 1, color: Colors.grey.withOpacity(0.2)),
-                  borderRadius: BorderRadius.circular(10),
-                  color: a,
-                ),
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: height / 65),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: width / 40),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: height / 12,
-                                  width: width / 5.5,
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQly97ryJANqdppmJmvJwQDppRTd_-pxx9KoQ&usqp=CAU.jpg"),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: height / 90),
-                                Container(
-                                  height: height / 30,
-                                  width: width / 5.5,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    gradient: const LinearGradient(
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft,
-                                      colors: [
-                                        Colors.lightBlueAccent,
-                                        Colors.cyanAccent,
-                                      ],
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      CustomStrings.open,
-                                      style: TextStyle(
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: width / 25,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+              padding: EdgeInsets.only(left: width / 1.3, top: height / 80),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.next_plan,
+                    color: lightblueColor,
+                    size: width / 15,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(top: height / 14, left: width / 40),
+                    child: Row(
+                      children: [
+                        Text(
+                          CustomStrings.qrrate,
+                          style: TextStyle(
+                            fontFamily: 'Gilroy Medium',
+                            fontSize: width / 25,
+                            color: greydark,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: width / 40, bottom: height / 40),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      CustomStrings.qrstation,
-                                      style: TextStyle(
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: width / 21,
-                                        color: lightColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.location_on_outlined,
-                                      size: width / 25,
-                                      color: greydark,
-                                    ),
-                                    Text(
-                                      CustomStrings.qrstation,
-                                      style: TextStyle(
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: width / 24,
-                                        color: greydark,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.directions,
-                                      size: width / 24,
-                                      color: greydark,
-                                    ),
-                                    Text(
-                                      CustomStrings.qraddress,
-                                      style: TextStyle(
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: width / 25,
-                                        color: greydark,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.charging_station,
-                                      size: width / 24,
-                                      color: greydark,
-                                    ),
-                                    Text(
-                                      CustomStrings.qrlocation,
-                                      style: TextStyle(
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: width / 25,
-                                        color: greydark,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                        ),
+                        Icon(
+                          Icons.star_rate_rounded,
+                          color: Colors.amber,
+                          size: width / 22,
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: width / 1.3, top: height / 80),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.next_plan,
-                            color: lightblueColor,
-                            size: width / 15,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: height / 14, left: width / 40),
-                            child: Row(
-                              children: [
-                                Text(
-                                  CustomStrings.qrrate,
-                                  style: TextStyle(
-                                    fontFamily: 'Gilroy Medium',
-                                    fontSize: width / 25,
-                                    color: greydark,
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.star_rate_rounded,
-                                  color: Colors.amber,
-                                  size: width / 22,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
             )
           ],

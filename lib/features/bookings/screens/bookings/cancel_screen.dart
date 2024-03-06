@@ -367,26 +367,6 @@ class _CancelScreenState extends State<CancelScreen> {
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
                                         InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                color: darkPrimeryColor,
-                                                borderRadius:
-                                                    BorderRadius.circular(30)),
-                                            height: height / 17,
-                                            width: width / 3,
-                                            // color: Colors.white,
-                                            child: Center(
-                                                child: Text(
-                                              'Cancel',
-                                              style: TextStyle(
-                                                  color: lightColor,
-                                                  fontFamily: 'Gilroy Medium',
-                                                  fontSize: 16),
-                                            )),
-                                          ),
-                                        ),
-                                        InkWell(
                                           onTap: () {
                                             setState(() {
                                               Navigator.of(context).push(
@@ -405,11 +385,11 @@ class _CancelScreenState extends State<CancelScreen> {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(30),
-                                              color: Colors.blue,
+                                              color: Colors.red,
                                             ),
                                             child: const Center(
                                                 child: Text(
-                                              'Rescheduled',
+                                              'Cancelled',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontFamily: 'Gilroy Medium',

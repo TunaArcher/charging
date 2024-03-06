@@ -39,6 +39,7 @@ class _BookingScreenState extends State<BookingScreen>
         padding: EdgeInsets.only(left: width / 30, right: width / 30),
         child: Column(
           children: [
+            /// -- Title Bar
             Padding(
               padding: EdgeInsets.only(top: height / 15),
               child: Row(
@@ -72,6 +73,8 @@ class _BookingScreenState extends State<BookingScreen>
               ),
             ),
             SizedBox(height: height / 40),
+
+            /// -- Tab
             Stack(
               children: [
                 Row(
