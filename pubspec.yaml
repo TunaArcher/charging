@@ -42,9 +42,9 @@ dependencies:
   get_storage: ^2.1.1
   google_maps_flutter: ^2.6.0
   geocoding: ^2.2.0
+  iconsax: ^0.0.8
   percent_indicator: ^4.2.3
   qr_code_scanner: ^1.0.1
-  iconsax: ^0.0.8
   dotted_line: ^3.2.2
 
 dev_dependencies:
