@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../utils/color.dart';
 import '../../../../utils/media.dart';
 import '../../../../utils/string.dart';
-
-import '../../../bookings/models/FruitDataModel.dart';
-
-import '../../../bookings/screens/bookings/reschould_screen.dart';
+import '../../../history/models/FruitDataModel.dart';
+import '../../../history/screens/history/reschould_screen.dart';
 
 //
 bool stetsu = true;

@@ -9,14 +9,9 @@ import '../../../../utils/customwidget.dart';
 import '../../../../utils/media.dart';
 import '../../../../utils/string.dart';
 
+import 'saved_screen.dart';
 import 'package:charging/features/authentication/screens/signinsignup/signtab.dart';
-import 'package:charging/features/profile/screens/profile/saved_screen.dart';
-import 'package:charging/features/profile/screens/wallet/wallet_screen.dart';
 import 'package:charging/features/profile/screens/profile/healp_screen.dart';
-import 'about_screen.dart';
-
-//
-bool stetsu = true;
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -26,16 +21,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  TextEditingController Name = TextEditingController();
+  TextEditingController Email = TextEditingController();
+  TextEditingController no = TextEditingController();
+
   @override
   void initState() {
     super.initState();
   }
-
-  TextEditingController Name = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController Email = TextEditingController();
-  TextEditingController no = TextEditingController();
-  bool status = false;
 
   @override
   Widget build(BuildContext context) {
@@ -67,13 +60,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Profile
+              /// -- Profile
               _buildProfile(),
 
-              // List Menu
+              /// -- List Menu
               _buildListMenu(context),
 
-              // Helper Menu
+              /// -- Helper Menu
               _buildHelperMenu(context),
             ],
           ),
@@ -151,57 +144,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Padding(
       padding: EdgeInsets.only(top: height / 40),
       child: Container(
-        height: height / 1.9,
+        height: height / 4,
         width: double.infinity,
         decoration:
             BoxDecoration(borderRadius: BorderRadius.circular(10), color: a),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // My Wallet
-            InkWell(
-              onTap: () => Get.to(() => const WalletScreen()),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: width / 20),
-                    child: Image.asset(
-                      'assets/icons/Wallet, save.png',
-                      height: height / 30,
-                    ),
-                  ),
-                  SizedBox(width: width / 25),
-                  SizedBox(
-                    width: width / 1.7,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          CustomStrings.mywallet,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Gilroy Medium',
-                            color: lightColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: width / 25.3),
-                  InkWell(
-                    onTap: () {
-                      setState(() {});
-                    },
-                    child: Icon(Icons.navigate_next,
-                        size: width / 10, color: lightColor),
-                  ),
-                  SizedBox(width: width / 30),
-                ],
-              ),
-            ),
-
-            // Saved Charging Station
+            /// -- Favorites
             InkWell(
               onTap: () => Get.to(() => const SavedScreen()),
               child: Row(
@@ -209,7 +159,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: width / 20),
                     child: Image.asset(
-                      'assets/icons/Bookmark, check, done.png',
+                      'assets/icons/Star, rating, favorites, like, half.png',
                       height: height / 30,
                     ),
                   ),
@@ -221,7 +171,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          CustomStrings.charging,
+                          'Favorites',
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Gilroy Medium',
@@ -253,7 +203,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            // Payment Methods
+            /// -- RFID Cards
             InkWell(
               onTap: () {
                 AlertDialog alert = AlertDialog(
@@ -271,7 +221,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: width / 20),
                     child: Image.asset(
-                      'assets/icons/Dollar, currency, sign, cirlce, USD.png',
+                      'assets/icons/Receipt, bill, invoice.png',
                       height: height / 30,
                     ),
                   ),
@@ -283,7 +233,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          CustomStrings.method,
+                          'RFID Cards',
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Gilroy Medium',
@@ -309,51 +259,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            // Reminder
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: width / 20),
-                  child: Image.asset(
-                    'assets/icons/bell.png',
-                    height: height / 30,
-                  ),
-                ),
-                SizedBox(width: width / 30),
-                SizedBox(
-                  width: width / 1.8,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Charging Reminder',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: lightColor,
-                          fontFamily: 'Gilroy Medium',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Transform.scale(
-                  scale: 0.8,
-                  child: CupertinoSwitch(
-                    value: stetsu,
-                    activeColor: darkblueColor,
-                    onChanged: (value) async {
-                      setState(() {
-                        stetsu = value;
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(width: width / 30),
-              ],
-            ),
-
-            // Logout
+            /// -- Logout
             InkWell(
               onTap: () => Get.offAll(() => SignTab()),
               child: Row(
@@ -413,7 +319,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Help
+            /// -- Help
             InkWell(
               onTap: () => Get.to(() => const HealpScreen()),
               child: Row(
@@ -444,95 +350,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
-            // About
-            InkWell(
-              onTap: () => Get.to(() => const AboutScreen()),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: width / 20),
-                    child: Image.asset(
-                      'assets/icons/Receipt, bill, invoice.png',
-                      height: height / 30,
-                    ),
-                  ),
-                  SizedBox(width: width / 25),
-                  SizedBox(
-                    width: width / 1.7,
-                    child: Text(
-                      CustomStrings.aboutapp,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Gilroy Medium',
-                        color: lightColor,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: width / 25.3),
-                  Icon(Icons.navigate_next_rounded,
-                      size: width / 10, color: lightColor),
-                  SizedBox(width: width / 30),
-                ],
-              ),
-            ),
           ],
         ),
       ),
-    );
-  }
-
-  walet(
-      {IconData? leadingicon,
-      actionicon,
-      String? title,
-      subtitle,
-      FlutterSwitch? toggel}) {
-    return Row(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(left: width / 30),
-          child: Icon(
-            leadingicon,
-            color: darkblueColor,
-            size: width / 10,
-          ),
-        ),
-        SizedBox(width: width / 30),
-        SizedBox(
-          width: width / 1.7,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Text(
-              //
-              //   style: TextStyle(fontSize: 20,color:lightColor,),
-              // ),
-              SizedBox(height: height / 100),
-              Text(subtitle,
-                  style: TextStyle(fontSize: 15, color: darkblueColor)),
-            ],
-          ),
-        ),
-        SizedBox(width: width / 25.3),
-        InkWell(
-          onTap: () {
-            // setState(() {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const wallet()),
-            //   );
-            // });
-          },
-          child: Icon(
-            actionicon,
-            size: width / 10,
-            color: lightColor,
-          ),
-        ),
-        SizedBox(width: width / 30),
-      ],
     );
   }
 
@@ -553,10 +373,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // ignore: sized_box_for_whitespace
               child: Container(
                 decoration: BoxDecoration(
-                    color: darkPrimeryColor,
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10))),
+                  color: darkPrimeryColor,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    topLeft: Radius.circular(10),
+                  ),
+                ),
                 height: height / 1.3,
                 child: Padding(
                   padding: const EdgeInsets.all(15),
@@ -606,7 +428,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             const SizedBox(height: 20),
                             Center(
                               child: Text(
-                                'Edit ProfileScreen',
+                                'Edit Profile',
                                 style: TextStyle(
                                   color: lightColor,
                                   fontFamily: 'Gilroy Medium',
@@ -630,24 +452,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               labelcolor: darkPrimeryColor,
                               suffix: null,
                               text: "Enter your Name",
-                            ),
-                            SizedBox(height: Get.height * 0.02),
-                            Text(
-                              "Password",
-                              style: TextStyle(
-                                fontFamily: "Gilroy Bold",
-                                fontSize: 16,
-                                color: lightColor,
-                              ),
-                            ),
-                            SizedBox(height: Get.height * 0.01),
-                            textfield(
-                              tclr: lightColor,
-                              controller: password,
-                              feildcolor: a,
-                              labelcolor: darkPrimeryColor,
-                              suffix: null,
-                              text: "Enter your Password",
                             ),
                             SizedBox(height: Get.height * 0.02),
                             Text(

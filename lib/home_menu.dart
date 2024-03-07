@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 import 'utils/color.dart';
 
-import 'package:charging/features/bookings/screens/bookings/booking_screen.dart';
-import 'package:charging/features/explore/screens/explore/explore_screen.dart';
-import 'package:charging/features/nearby/screens/nearby/nearby_screen.dart';
-import 'package:charging/features/profile/screens/profile/profile_screen.dart';
-import 'package:charging/features/scan/screens/scan/scan_screen.dart';
+import 'features/history/screens/history/history_screen.dart';
+import 'features/home/screens/nearby/home_screen.dart';
+import 'features/profile/screens/profile/profile_screen.dart';
+import 'features/scan/screens/scan/scan_screen.dart';
+import 'features/wallet/screens/wallet/wallet_screen.dart';
 
 class HomeMenu extends StatelessWidget {
   const HomeMenu({super.key});
@@ -18,56 +19,64 @@ class HomeMenu extends StatelessWidget {
     final controller = Get.put(AppScreenController());
 
     return Scaffold(
-      extendBody: true,
-      body: Obx(() => controller.screens[controller.selectedMenu.value]),
-      bottomNavigationBar: Obx(
-        () => NavigationBar(
-          height: 80,
-          animationDuration: const Duration(seconds: 3),
-          selectedIndex: controller.selectedMenu.value,
-          backgroundColor: darkPrimeryColor,
-          elevation: 0,
-          indicatorColor: darkPrimeryColor,
-          onDestinationSelected: (index) =>
-              controller.selectedMenu.value = index,
-          destinations: const [
-            NavigationDestination(
-                icon: Image(
-                  image: AssetImage('assets/icons/House, home, hut.png'),
-                  height: 30,
+        extendBody: true,
+        body: Obx(() => controller.screens[controller.selectedMenu.value]),
+        bottomNavigationBar: Obx(() => NavigationBarTheme(
+              data: NavigationBarThemeData(
+                labelTextStyle: MaterialStateProperty.resolveWith<TextStyle>(
+                  (Set<MaterialState> states) =>
+                      states.contains(MaterialState.selected)
+                          ? const TextStyle(color: Color(0xff00ffff))
+                          : const TextStyle(color: Colors.blue),
                 ),
-                label: 'Explore'),
-            NavigationDestination(
-                icon: Image(
-                  image:
-                      AssetImage('assets/icons/Explore, compass, discover.png'),
-                  height: 30,
-                ),
-                label: 'Nearby'),
-            NavigationDestination(
-                icon: Image(
-                  image: AssetImage('assets/icons/QR, code, scan.png'),
-                  height: 30,
-                ),
-                label: 'EVX'),
-            NavigationDestination(
-                icon: Image(
-                  image:
-                      AssetImage('assets/icons/Battery, charging, power.png'),
-                  height: 30,
-                ),
-                label: 'Bookings'),
-            NavigationDestination(
-                icon: Image(
-                  image: AssetImage(
-                      'assets/icons/user, person, profile, block, account, circle.png'),
-                  height: 30,
-                ),
-                label: 'Profile'),
-          ],
-        ),
-      ),
-    );
+              ),
+              child: NavigationBar(
+                height: 80,
+                animationDuration: const Duration(seconds: 3),
+                selectedIndex: controller.selectedMenu.value,
+                backgroundColor: darkPrimeryColor,
+                elevation: 0,
+                indicatorColor: darkPrimeryColor,
+                onDestinationSelected: (index) =>
+                    controller.selectedMenu.value = index,
+                destinations: const [
+                  NavigationDestination(
+                    icon: Image(
+                      image: AssetImage('assets/icons/House, home, hut.png'),
+                      height: 30,
+                    ),
+                    label: 'Home',
+                  ),
+                  NavigationDestination(
+                    icon: Image(
+                      image: AssetImage(
+                          'assets/icons/Battery, charging, power.png'),
+                      height: 30,
+                    ),
+                    label: 'History',
+                  ),
+                  NavigationDestination(
+                    icon: Image(image: AssetImage('assets/splay.png')),
+                    label: 'EVX',
+                  ),
+                  NavigationDestination(
+                    icon: Image(
+                      image: AssetImage('assets/icons/Wallet, save.png'),
+                      height: 30,
+                    ),
+                    label: 'Wallet',
+                  ),
+                  NavigationDestination(
+                    icon: Image(
+                      image: AssetImage(
+                          'assets/icons/user, person, profile, block, account, circle.png'),
+                      height: 30,
+                    ),
+                    label: 'Profile',
+                  ),
+                ],
+              ),
+            )));
   }
 }
 
@@ -75,10 +84,19 @@ class AppScreenController extends GetxController {
   static AppScreenController get instance => Get.find();
   final Rx<int> selectedMenu = 0.obs;
   final screens = [
-    const ExploreScreen(),
-    const NearbyScreen(),
+    /// -- Home
+    const HomeScreen(),
+
+    /// -- History
+    const HistoryScreen(),
+
+    /// -- Scan
     const ScanScreen(),
-    const BookingScreen(),
+
+    /// -- Wallet
+    const WalletScreen(),
+
+    /// -- Profile
     const ProfileScreen(),
   ];
 }

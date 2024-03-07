@@ -7,8 +7,9 @@ import '../../../../utils/color.dart';
 import '../../../../utils/customwidget.dart';
 import '../../../../utils/media.dart';
 
-import 'package:charging/features/profile/screens/wallet/credit_screen.dart';
-import 'package:charging/features/profile/screens/wallet/debit_screen.dart';
+import 'credit_screen.dart';
+import 'debit_screen.dart';
+
 
 class WalletScreen extends StatefulWidget {
   const WalletScreen({super.key});

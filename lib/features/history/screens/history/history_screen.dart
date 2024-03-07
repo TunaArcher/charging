@@ -8,14 +8,14 @@ import 'upcoming_screen.dart';
 import 'complet_screen.dart';
 import 'cancel_screen.dart';
 
-class BookingScreen extends StatefulWidget {
-  const BookingScreen({super.key});
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({super.key});
 
   @override
-  State<BookingScreen> createState() => _BookingScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen>
+class _HistoryScreenState extends State<HistoryScreen>
     with SingleTickerProviderStateMixin {
   TabController? controller;
 

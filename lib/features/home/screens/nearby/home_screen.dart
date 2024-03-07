@@ -26,14 +26,14 @@ List<Map<String, dynamic>> data = [
   },
 ];
 
-class NearbyScreen extends StatefulWidget {
-  const NearbyScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<NearbyScreen> createState() => _NearbyScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _NearbyScreenState extends State<NearbyScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   /// -- MAP
   CameraPosition? _kGooglePlex;
 
@@ -115,7 +115,7 @@ class _NearbyScreenState extends State<NearbyScreen> {
       body: Stack(
         children: [
           /// -- Map
-          _buildMap(),
+          // _buildMap(),
 
           /// -- Search Box
           _buildSearchBox(),
