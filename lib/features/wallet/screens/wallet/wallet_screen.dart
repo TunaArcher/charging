@@ -10,7 +10,6 @@ import '../../../../utils/media.dart';
 import 'credit_screen.dart';
 import 'debit_screen.dart';
 
-
 class WalletScreen extends StatefulWidget {
   const WalletScreen({super.key});
 
@@ -77,36 +76,7 @@ class _WalletScreenState extends State<WalletScreen>
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: height / 20),
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  },
-                  icon: Icon(
-                    Icons.keyboard_backspace_outlined,
-                    size: width / 12,
-                    color: lightColor,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: width / 40),
-                  child: Text(
-                    'My wallet',
-                    style: TextStyle(
-                      fontSize: width / 18,
-                      fontWeight: FontWeight.w600,
-                      color: lightColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          Padding(padding: EdgeInsets.only(top: height / 20)),
           Center(
             child: Padding(
                 padding: EdgeInsets.only(top: height / 30),

@@ -33,30 +33,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: darkPrimeryColor,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            color: lightColor,
-            fontFamily: 'Gilroy Medium',
-          ),
-        ),
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: width / 40),
-            child: Icon(Icons.more_vert_outlined, color: lightColor),
-          )
-        ],
-        leading: Icon(
-          Icons.arrow_back,
-          color: lightColor,
-        ),
-      ),
       backgroundColor: darkPrimeryColor,
       body: Padding(
-        padding: EdgeInsets.only(left: width / 30, right: width / 30),
+        padding: EdgeInsets.only(top: height / 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
