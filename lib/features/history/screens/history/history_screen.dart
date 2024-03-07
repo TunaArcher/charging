@@ -53,7 +53,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   Padding(
                     padding: EdgeInsets.only(top: height / 13),
                     child: Text(
-                      'History (ref.EV loga)',
+                      'History (ref. EV LOGA)',
                       style: TextStyle(
                         color: darkblueColor,
                         fontFamily: 'Gilroy Bold',

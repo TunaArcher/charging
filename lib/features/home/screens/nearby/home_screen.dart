@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/color.dart';
 import '../../../../utils/media.dart';
+import 'charging_point_station_screen.dart';
 
 List<Map<String, dynamic>> data = [
   {
@@ -207,15 +210,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildChargingPointSlide() {
     return Center(
       child: Padding(
-        padding: EdgeInsets.only(top: height / 2.4),
+        padding: EdgeInsets.only(top: height / 2.0),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(15),
-              topLeft: Radius.circular(15),
-            ),
-            color: darkPrimeryColor,
-          ),
+          // decoration: BoxDecoration(
+          //   borderRadius: const BorderRadius.only(
+          //     topRight: Radius.circular(15),
+          //     topLeft: Radius.circular(15),
+          //   ),
+          //   color: darkPrimeryColor,
+          // ),
           child: Padding(
             padding: EdgeInsets.only(top: height / 60),
             child: SingleChildScrollView(
@@ -238,112 +241,119 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                         child: Container(
-                            height: height / 4,
-                            width: width / 1.5,
-                            decoration: BoxDecoration(
-                                color: serchbaard,
-                                border:
-                                    Border.all(width: 1, color: lightgreyColor),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(top: height / 70),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: width / 60),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  height: height / 8,
-                                                  width: width / 3,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                      image: DecorationImage(
-                                                          image: AssetImage(
-                                                              info[_index]
-                                                                  ['image']),
-                                                          fit: BoxFit.fill)),
+                          height: height / 4,
+                          width: width / 1.5,
+                          decoration: BoxDecoration(
+                            color: serchbaard,
+                            border: Border.all(width: 1, color: lightgreyColor),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: height / 70),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.only(left: width / 60),
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                height: height / 8,
+                                                width: width / 3,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        info[_index]['image']),
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 8,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      '$rat',
-                                                      style: TextStyle(
-                                                          fontSize: 15,
-                                                          color: lightColor),
+                                              ),
+                                              const SizedBox(height: 8),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    '$rat',
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                      color: lightColor,
                                                     ),
-                                                    SizedBox(
-                                                      width: width / 40,
+                                                  ),
+                                                  SizedBox(width: width / 40),
+                                                  RatingBar(
+                                                    initialRating: 3,
+                                                    direction: Axis.horizontal,
+                                                    allowHalfRating: true,
+                                                    itemSize: 18,
+                                                    itemCount: 5,
+                                                    ratingWidget: RatingWidget(
+                                                      full: Image.asset(
+                                                          'assets/icons/Star, rating, favorites, like, half.png'),
+                                                      half: Image.asset(
+                                                          'assets/icons/Star, rating, favorites, like, half (1).png'),
+                                                      empty: Image.asset(
+                                                          'assets/icons/Star, rating, favorites, like, half.png'),
                                                     ),
-                                                    RatingBar(
-                                                      initialRating: 3,
-                                                      direction:
-                                                          Axis.horizontal,
-                                                      allowHalfRating: true,
-                                                      itemSize: 18,
-                                                      itemCount: 5,
-                                                      ratingWidget:
-                                                          RatingWidget(
-                                                        full: Image.asset(
-                                                            'assets/icons/Star, rating, favorites, like, half.png'),
-                                                        half: Image.asset(
-                                                            'assets/icons/Star, rating, favorites, like, half (1).png'),
-                                                        empty: Image.asset(
-                                                            'assets/icons/Star, rating, favorites, like, half.png'),
-                                                      ),
-                                                      onRatingUpdate: (rating) {
-                                                        setState(() {
-                                                          rat = rating;
-                                                        });
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
+                                                    onRatingUpdate: (rating) {
+                                                      setState(() {
+                                                        rat = rating;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: width / 40,
-                                                bottom: height / 40),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    SizedBox(
-                                                      width: width / 2,
-                                                      child: Text(
-                                                        '${info[_index]['staation']}',
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontFamily:
-                                                                'Gilroy Medium',
-                                                            color: lightColor,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            left: width / 40,
+                                            bottom: height / 40,
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  SizedBox(
+                                                    width: width / 2,
+                                                    child: Text(
+                                                      '${info[_index]['staation']}',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontFamily:
+                                                            'Gilroy Medium',
+                                                        color: lightColor,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Text(
-                                                      'Available slot : ',
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    'Available slot : ',
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: greydark,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: width / 4,
+                                                    child: Text(
+                                                      '${info[_index]['slote']}',
                                                       overflow:
                                                           TextOverflow.ellipsis,
                                                       style: TextStyle(
@@ -351,295 +361,263 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         color: greydark,
                                                       ),
                                                     ),
-                                                    SizedBox(
-                                                      width: width / 4,
-                                                      child: Text(
-                                                        '${info[_index]['slote']}',
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyle(
-                                                          fontSize: 14,
-                                                          color: greydark,
-                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: height / 140),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/icons/Alarm, clock.png',
+                                                    scale: 6,
+                                                  ),
+                                                  SizedBox(width: width / 30),
+                                                  SizedBox(
+                                                    width: width / 3,
+                                                    child: Text(
+                                                      '${info[_index]['time']}',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: greydark,
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: height / 140,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Image.asset(
-                                                      'assets/icons/Alarm, clock.png',
-                                                      scale: 6,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 30,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 3,
-                                                      child: Text(
-                                                        '${info[_index]['time']}',
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyle(
-                                                          fontSize: 14,
-                                                          color: greydark,
-                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: height / 140),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/icons/Phone, call, outgoing.png',
+                                                    scale: 6,
+                                                  ),
+                                                  SizedBox(
+                                                    width: width / 30,
+                                                  ),
+                                                  SizedBox(
+                                                    width: width / 3,
+                                                    child: Text(
+                                                      '${info[_index]['No']}',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: greydark,
                                                       ),
                                                     ),
-                                                  ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: height / 55,
+                                        left: width / 30,
+                                        right: width / 30,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Connection',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: greydark,
                                                 ),
-                                                SizedBox(
-                                                  height: height / 140,
+                                              ),
+                                              SizedBox(
+                                                height: height / 200,
+                                              ),
+                                              Text(
+                                                '${info[_index]['type']}',
+                                                style: TextStyle(
+                                                  color: lightColor,
+                                                  fontSize: 16,
                                                 ),
-                                                Row(
-                                                  children: [
-                                                    Image.asset(
-                                                      'assets/icons/Phone, call, outgoing.png',
-                                                      scale: 6,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 30,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 3,
-                                                      child: Text(
-                                                        '${info[_index]['No']}',
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyle(
-                                                          fontSize: 14,
-                                                          color: greydark,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Speed',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: greydark,
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              SizedBox(
+                                                height: height / 200,
+                                              ),
+                                              Text(
+                                                '${info[_index]['kw']}',
+                                                style: TextStyle(
+                                                  color: lightColor,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Facilities',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: greydark,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: height / 200,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Image.asset(
+                                                    'assets/icons/Wine, cup, glass, half.png',
+                                                    scale: 5,
+                                                  ),
+                                                  SizedBox(width: width / 80),
+                                                  Image.asset(
+                                                    'assets/icons/Cutlery, fork, knife, restaurant.png',
+                                                    scale: 5,
+                                                  ),
+                                                  SizedBox(width: width / 80),
+                                                  Image.asset(
+                                                    'assets/icons/Sethoscope, health, doctor.png',
+                                                    scale: 5,
+                                                  ),
+                                                ],
+                                              )
+                                            ],
                                           ),
                                         ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            top: height / 55,
-                                            left: width / 30,
-                                            right: width / 30),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Connection',
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(top: height / 40),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () => Get.to(() => const ChargingPointStationScreen()),
+                                            child: Container(
+                                              height: height / 16,
+                                              width: width / 1.8,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                gradient: const LinearGradient(
+                                                    begin: Alignment.topRight,
+                                                    end: Alignment.bottomLeft,
+                                                    colors: [
+                                                      Colors.lightBlueAccent,
+                                                      Colors.cyanAccent,
+                                                    ]),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  'Detail',
                                                   style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: greydark),
-                                                ),
-                                                SizedBox(
-                                                  height: height / 200,
-                                                ),
-                                                Text(
-                                                  '${info[_index]['type']}',
-                                                  style: TextStyle(
-                                                      color: lightColor,
-                                                      fontSize: 16),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Speed',
-                                                  style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: greydark),
-                                                ),
-                                                SizedBox(
-                                                  height: height / 200,
-                                                ),
-                                                Text(
-                                                  '${info[_index]['kw']}',
-                                                  style: TextStyle(
-                                                      color: lightColor,
-                                                      fontSize: 16),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Facilities',
-                                                  style: TextStyle(
-                                                      fontSize: 14,
-                                                      color: greydark),
-                                                ),
-                                                SizedBox(
-                                                  height: height / 200,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Image.asset(
-                                                      'assets/icons/Wine, cup, glass, half.png',
-                                                      scale: 5,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 80,
-                                                    ),
-                                                    Image.asset(
-                                                      'assets/icons/Cutlery, fork, knife, restaurant.png',
-                                                      scale: 5,
-                                                    ),
-                                                    SizedBox(
-                                                      width: width / 80,
-                                                    ),
-                                                    Image.asset(
-                                                      'assets/icons/Sethoscope, health, doctor.png',
-                                                      scale: 5,
-                                                    ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            EdgeInsets.only(top: height / 40),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                AlertDialog alert = AlertDialog(
-                                                  title: Text('Development'),
-                                                );
-                                                showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return alert;
-                                                  },
-                                                );
-                                              },
-                                              child: Container(
-                                                height: height / 16,
-                                                width: width / 1.8,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  gradient:
-                                                      const LinearGradient(
-                                                          begin: Alignment
-                                                              .topRight,
-                                                          end: Alignment
-                                                              .bottomLeft,
-                                                          colors: [
-                                                        Colors.lightBlueAccent,
-                                                        Colors.cyanAccent,
-                                                      ]),
-                                                ),
-                                                child: Center(
-                                                  child: Text(
-                                                    'Schedule',
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: height / 50,
-                                                      fontFamily: 'Gilroy Bold',
-                                                    ),
+                                                    color: Colors.black,
+                                                    fontSize: height / 50,
+                                                    fontFamily: 'Gilroy Bold',
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
-                                              width: width / 30,
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                AlertDialog alert = AlertDialog(
-                                                  title: Text('Development'),
-                                                );
-                                                showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return alert;
-                                                  },
-                                                );
-                                              },
-                                              child: Container(
-                                                height: height / 16,
-                                                width: width / 7,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                  gradient:
-                                                      const LinearGradient(
-                                                          begin: Alignment
-                                                              .topRight,
-                                                          end: Alignment
-                                                              .bottomLeft,
-                                                          colors: [
-                                                        Colors.lightBlueAccent,
-                                                        Colors.cyanAccent,
-                                                      ]),
-                                                ),
-                                                child: const Center(
-                                                    child: Icon(
-                                                  Icons.send_rounded,
+                                          ),
+                                          SizedBox(width: width / 30),
+                                          GestureDetector(
+                                            onTap: () {
+                                              AlertDialog alert = AlertDialog(
+                                                title: Text('Development'),
+                                              );
+                                              showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return alert;
+                                                },
+                                              );
+                                            },
+                                            child: Container(
+                                              height: height / 16,
+                                              width: width / 7,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                gradient: const LinearGradient(
+                                                    begin: Alignment.topRight,
+                                                    end: Alignment.bottomLeft,
+                                                    colors: [
+                                                      Colors.lightBlueAccent,
+                                                      Colors.cyanAccent,
+                                                    ]),
+                                              ),
+                                              child: const Center(
+                                                child: Icon(
+                                                  Iconsax.scan,
                                                   size: 20,
                                                   color: Colors.black,
-                                                )),
+                                                ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          top: height / 40,
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Add : ',
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: height / 40,
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Add : ',
+                                            style: TextStyle(
+                                                color: lightColor,
+                                                fontFamily: 'Gilroy Bold'),
+                                          ),
+                                          SizedBox(
+                                            width: width / 1.5,
+                                            child: Text(
+                                              '${info[_index]['add']}',
                                               style: TextStyle(
-                                                  color: lightColor,
-                                                  fontFamily: 'Gilroy Bold'),
-                                            ),
-                                            SizedBox(
-                                              width: width / 1.5,
-                                              child: Text(
-                                                '${info[_index]['add']}',
-                                                style: TextStyle(
-                                                    color: greydark,
-                                                    fontFamily:
-                                                        'Gilroy Medium'),
+                                                color: greydark,
+                                                fontFamily: 'Gilroy Medium',
                                               ),
-                                            )
-                                          ],
-                                        ),
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            )),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   },
