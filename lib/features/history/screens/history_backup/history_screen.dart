@@ -8,14 +8,14 @@ import 'upcoming_screen.dart';
 import 'complet_screen.dart';
 import 'cancel_screen.dart';
 
-class BookingScreen extends StatefulWidget {
-  const BookingScreen({super.key});
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({super.key});
 
   @override
-  State<BookingScreen> createState() => _BookingScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen>
+class _HistoryScreenState extends State<HistoryScreen>
     with SingleTickerProviderStateMixin {
   TabController? controller;
 
@@ -40,38 +40,7 @@ class _BookingScreenState extends State<BookingScreen>
         child: Column(
           children: [
             /// -- Title Bar
-            Padding(
-              padding: EdgeInsets.only(top: height / 15),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.keyboard_backspace_outlined,
-                    size: width / 12,
-                    color: lightColor,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: width / 40),
-                    child: Text(
-                      CustomStrings.Booking,
-                      style: TextStyle(
-                        fontSize: width / 18,
-                        fontFamily: 'Gilroy Medium',
-                        fontWeight: FontWeight.w600,
-                        color: lightColor,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 192),
-                    child: Icon(
-                      Icons.more_vert_outlined,
-                      size: width / 12.7,
-                      color: lightColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            Padding(padding: EdgeInsets.only(top: height / 20)),
             SizedBox(height: height / 40),
 
             /// -- Tab

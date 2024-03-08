@@ -46,37 +46,7 @@ class _ScanScreenState extends State<ScanScreen> {
         child: Column(
           children: [
             /// -- Title Bar
-            Padding(
-              padding: EdgeInsets.only(top: height / 15, left: width / 30),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.keyboard_backspace_outlined,
-                    size: width / 12,
-                    color: lightColor,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: width / 40),
-                    child: Text(
-                      CustomStrings.scaner,
-                      style: TextStyle(
-                        fontSize: width / 18,
-                        fontWeight: FontWeight.w600,
-                        color: lightColor,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: width / 2),
-                    child: Icon(
-                      Icons.more_vert_outlined,
-                      size: width / 12,
-                      color: lightColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            Padding(padding: EdgeInsets.only(top: height / 20)),
             SizedBox(height: height / 50),
 
             /// -- Camera

@@ -1,11 +1,11 @@
 // routes.dart
 
 class TRoutes {
-  static const home = '/';
+  static const welcome = '/';
   static const signtab = '/signtab';
-  static const explore = '/explore';
-  static const nearby = '/nearby';
+  static const home = '/home';
+  static const history = '/history';
   static const scan = '/scan';
-  static const booking = '/booking';
+  static const wallet = '/wallet';
   static const profile = '/profile';
 }
