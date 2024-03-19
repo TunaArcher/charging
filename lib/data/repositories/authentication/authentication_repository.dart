@@ -67,7 +67,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /* ---------------------------- Email & Password sign-in ---------------------------------*/
+  /* ---------------------------- Phone & Password sign-in ---------------------------------*/
 
   /// [PhoneAuthentication] - SignIn
   Future loginWithPhoneAndPassword(String phone, String password) async {
@@ -77,7 +77,7 @@ class AuthenticationRepository extends GetxController {
       //   'password': password
       // };
 
-      dynamic data = {'phone': '000000000', 'password': '1234test'};
+      dynamic data = {'phone': '000000000', 'password': '1234test'}; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
       var response = await EvxHttpHelper.post(evxLogin, data);
 
