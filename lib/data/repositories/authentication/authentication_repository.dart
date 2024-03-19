@@ -1,15 +1,22 @@
+import 'dart:convert';
+
 import 'package:charging/utils/constants/api_constants.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../features/authentication/screens/signinsignup/signtab.dart';
+import '../../../features/personalization/models/user_model.dart';
+import '../../../home_menu.dart';
 import '../../../utils/http/http_client.dart';
+import '../../../utils/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   /// Variables
   final deviceStorage = GetStorage();
+  late UserModel user;
+
   // late final Rx<User?> _firebaseUser;
   // final _auth = FirebaseAuth.instance;
 
@@ -34,38 +41,47 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// Function to Show Relevant Screen
-  // screenRedirect(User? user) async {
-  //   // if (user != null) {
-  //   //   // User Logged-In: If email verified let the user go to Home Screen else to the Email Verification Screen
-  //   //   if (user.emailVerified) {
-  //   //     // Initialize User Specific Storage
-  //   //     await TLocalStorage.init(user.uid);
-  //   //     Get.offAll(() => const HomeMenu());
-  //   //   } else {
-  //   //     Get.offAll(() => VerifyEmailScreen(email: getUserEmail));
-  //   //   }
-  //   // } else {
-  //   //   // Local Storage: User is new or Logged out! If new then write isFirstTime Local storage variable = true.
-  //   //   deviceStorage.writeIfNull('isFirstTime', true);
-  //   //   deviceStorage.read('isFirstTime') != true
-  //   //       ? Get.offAll(() => const LoginScreen())
-  //   //       : Get.offAll(() => const OnBoardingScreen());
-  //   // }
-  // }
+  screenRedirect(UserModel? user) async {
+    if (user != null) {
+      // User Logged-In: If email verified let the user go to Home Screen else to the Email Verification Screen
+      // if (user.emailVerified) {
+      //   // Initialize User Specific Storage
+      //   await EvxLocalStorage.init(user.uid);
+      //   Get.offAll(() => const HomeMenu());
+      // } else {
+      //   Get.offAll(() => VerifyEmailScreen(email: getUserEmail));
+      // }
+
+      String? token = user.token;
+
+      await EvxLocalStorage.init(token!);
+      Get.offAll(() => const HomeMenu());
+    } else {
+      // Local Storage: User is new or Logged out! If new then write isFirstTime Local storage variable = true.
+      // deviceStorage.writeIfNull('isFirstTime', true);
+      // deviceStorage.read('isFirstTime') != true
+      //     ? Get.offAll(() => const LoginScreen())
+      //     : Get.offAll(() => const OnBoardingScreen());
+
+      Get.offAll(() => const SignTab());
+    }
+  }
 
   /* ---------------------------- Email & Password sign-in ---------------------------------*/
 
   /// [PhoneAuthentication] - SignIn
   Future loginWithPhoneAndPassword(String phone, String password) async {
     try {
-      dynamic data = {
-        'phone': phone,
-        'password': password
-      };
+      // dynamic data = {
+      //   'phone': phone,
+      //   'password': password
+      // };
+
+      dynamic data = {'phone': '000000000', 'password': '1234test'};
+
       var response = await EvxHttpHelper.post(evxLogin, data);
-      // TODO:: แปลเป็ฯ model ออกไป
-      print(response);
-      // return await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+      return UserModel.fromJson(response['data']);
     } catch (e) {
       // TODO:: Handle
     }

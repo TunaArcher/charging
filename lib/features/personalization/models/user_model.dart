@@ -10,11 +10,13 @@ List<UserModel> userModelFromJson(String str) => List<UserModel>.from(json.decod
 String userModelToJson(List<UserModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class UserModel {
-  String? id;
+  int? id;
   String? phone;
   String? firstname;
   String? lastname;
   String? email;
+  String? status;
+  String? token;
 
   UserModel({
     this.id,
@@ -22,6 +24,8 @@ class UserModel {
     this.firstname,
     this.lastname,
     this.email,
+    this.status,
+    this.token,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
@@ -30,6 +34,8 @@ class UserModel {
     firstname: json["firstname"],
     lastname: json["lastname"],
     email: json["email"],
+    status: json["status"],
+    token: json["token"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -38,5 +44,7 @@ class UserModel {
     "firstname": firstname,
     "lastname": lastname,
     "email": email,
+    "status": status,
+    "token": token,
   };
 }

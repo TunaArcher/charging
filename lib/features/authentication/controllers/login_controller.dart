@@ -30,7 +30,7 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
-  /// -- Email and Password SignIn
+  /// -- Phone and Password SignIn
   Future<void> phoneAndPasswordSignIn() async {
     try {
       // Start Loading
@@ -66,7 +66,7 @@ class LoginController extends GetxController {
       // TFullScreenLoader.stopLoading();
 
       // Redirect
-      // await AuthenticationRepository.instance.screenRedirect(userCredentials.user);
+      await AuthenticationRepository.instance.screenRedirect(userCredentials);
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
