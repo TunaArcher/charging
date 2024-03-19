@@ -33,6 +33,8 @@ class CustomStrings {
   static const String information = 'Enter your information below to get';
   static const String trips = 'started your trips';
   static const String email = 'Email';
+
+  static const String phone = 'Phone';
   static const String fullname = 'Full name';
   static const String forgotpassword = 'Forgot Password?';
   static const String rememberme = 'Remember Me';
