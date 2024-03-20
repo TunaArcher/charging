@@ -1,6 +1,6 @@
 // routes.dart
 
-class TRoutes {
+class EvxRoutes {
   static const welcome = '/';
   static const signtab = '/signtab';
   static const home = '/home';

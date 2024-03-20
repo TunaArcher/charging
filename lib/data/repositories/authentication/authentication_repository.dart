@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:charging/features/authentication/models/auth_model.dart';
 import 'package:charging/utils/constants/api_constants.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -34,37 +36,19 @@ class AuthenticationRepository extends GetxController {
   /// Called from main.dart on app launch
   @override
   void onReady() {
-    // _firebaseUser = Rx<User?>(_auth.currentUser);
-    // _firebaseUser.bindStream(_auth.userChanges());
-    // FlutterNativeSplash.remove();
-    // screenRedirect(_firebaseUser.value);
+    FlutterNativeSplash.remove();
+    screenRedirect();
   }
 
   /// Function to Show Relevant Screen
-  screenRedirect(UserModel? user) async {
-    if (user != null) {
-      // User Logged-In: If email verified let the user go to Home Screen else to the Email Verification Screen
-      // if (user.emailVerified) {
-      //   // Initialize User Specific Storage
-      //   await EvxLocalStorage.init(user.uid);
-      //   Get.offAll(() => const HomeMenu());
-      // } else {
-      //   Get.offAll(() => VerifyEmailScreen(email: getUserEmail));
-      // }
+  screenRedirect() async {
 
-      String? token = user.token;
+    var token = deviceStorage.read('token') ?? null; // Todo:: handle case: if token expire
 
-      await EvxLocalStorage.init(token!);
+    if (token != null)
       Get.offAll(() => const HomeMenu());
-    } else {
-      // Local Storage: User is new or Logged out! If new then write isFirstTime Local storage variable = true.
-      // deviceStorage.writeIfNull('isFirstTime', true);
-      // deviceStorage.read('isFirstTime') != true
-      //     ? Get.offAll(() => const LoginScreen())
-      //     : Get.offAll(() => const OnBoardingScreen());
-
+    else
       Get.offAll(() => const SignTab());
-    }
   }
 
   /* ---------------------------- Phone & Password sign-in ---------------------------------*/
@@ -77,11 +61,17 @@ class AuthenticationRepository extends GetxController {
       //   'password': password
       // };
 
-      dynamic data = {'phone': '000000000', 'password': '1234test'}; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
+      dynamic data = {
+        'phone': '000000000',
+        'password': '1234test'
+      }; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
       var response = await EvxHttpHelper.post(evxLogin, data);
 
-      return UserModel.fromJson(response['data']);
+      var authResponse = AuthModel.fromJson(response['data']);
+
+      deviceStorage.write('token', authResponse.token);
+      return authResponse;
     } catch (e) {
       // TODO:: Handle
     }
@@ -107,13 +97,7 @@ class AuthenticationRepository extends GetxController {
   /// [LogoutUser] - Valid for any authentication.
   Future<void> logout() async {
     try {
-      // await GoogleSignIn().signOut();
-      // await FacebookAuth.instance.logOut();
-      // await FirebaseAuth.instance.signOut();
-
-      // TODO:: Handle
-
-      Get.offAll(() => const SignTab());
+      deviceStorage.erase();
     } catch (e) {
       // TODO:: Handle
     }
