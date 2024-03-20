@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/customwidget.dart';
-import '../../../../utils/media.dart';
+import '../../../../common/widgets/customwidget.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
 
 import 'credit_screen.dart';
 import 'debit_screen.dart';
@@ -71,7 +71,7 @@ class _WalletScreenState extends State<WalletScreen>
           ),
         ),
       ),
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,14 +93,14 @@ class _WalletScreenState extends State<WalletScreen>
                 'Current Balance:',
                 style: TextStyle(
                   fontSize: width / 20,
-                  color: darkblueColor,
+                  color: EvxColors.darkblueColor,
                 ),
               ),
               Text(
                 '10,000.00',
                 style: TextStyle(
                   fontSize: width / 20,
-                  color: lightColor,
+                  color: EvxColors.lightColor,
                 ),
               ),
             ],
@@ -111,7 +111,7 @@ class _WalletScreenState extends State<WalletScreen>
               'Transaction history :',
               style: TextStyle(
                 fontSize: width / 20,
-                color: lightColor,
+                color: EvxColors.lightColor,
               ),
             ),
           ),
@@ -122,7 +122,9 @@ class _WalletScreenState extends State<WalletScreen>
               height: height / 18,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: a, borderRadius: BorderRadius.circular(30)),
+                color: EvxColors.a,
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: TabBar(
                 controller: controller,
                 indicator: BoxDecoration(
@@ -133,8 +135,8 @@ class _WalletScreenState extends State<WalletScreen>
                 ),
                 labelColor: Colors.white,
                 dividerColor: Colors.transparent,
-                unselectedLabelColor: lightColor,
-                indicatorColor: darkblueColor,
+                unselectedLabelColor: EvxColors.lightColor,
+                indicatorColor: EvxColors.darkblueColor,
                 labelStyle: const TextStyle(fontFamily: 'Gilroy_Bold'),
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicatorPadding: const EdgeInsets.all(3),
@@ -200,77 +202,85 @@ class _WalletScreenState extends State<WalletScreen>
                       bottom: MediaQuery.of(context).viewInsets.bottom),
                   // ignore: sized_box_for_whitespace
                   child: Container(
-                    decoration: BoxDecoration(color: darkPrimeryColor),
+                    decoration:
+                        BoxDecoration(color: EvxColors.darkPrimeryColor),
                     height: height / 3,
                     child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 10),
-                        child: Stack(
-                          children: [
-                            InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    Navigator.pop(context);
-                                  });
-                                },
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Container(
-                                    height: height / 15,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: const LinearGradient(
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft,
-                                        colors: [
-                                          Colors.lightBlueAccent,
-                                          Colors.cyanAccent,
-                                        ],
-                                      ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Next',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontFamily: 'Gilroy Bold',
-                                            fontSize: width / 20),
-                                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 10),
+                      child: Stack(
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                setState(() {
+                                  Navigator.pop(context);
+                                });
+                              },
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  height: height / 15,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    gradient: const LinearGradient(
+                                      begin: Alignment.topRight,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Colors.lightBlueAccent,
+                                        Colors.cyanAccent,
+                                      ],
                                     ),
                                   ),
-                                )),
-                            SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 20),
-                                  Center(
-                                      child: Text(
+                                  child: Center(
+                                    child: Text(
+                                      'Next',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Gilroy Bold',
+                                          fontSize: width / 20),
+                                    ),
+                                  ),
+                                ),
+                              )),
+                          SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 20),
+                                Center(
+                                  child: Text(
                                     'Add money',
                                     style: TextStyle(
-                                        color: lightColor,
-                                        fontFamily: 'Gilroy Medium',
-                                        fontSize: 18),
-                                  )),
-                                  Text("Add amount",
-                                      style: TextStyle(
-                                          fontFamily: "Gilroy Bold",
-                                          fontSize: 16,
-                                          color: lightColor)),
-                                  SizedBox(height: Get.height * 0.02),
-                                  textfield(
-                                      controller: add,
-                                      feildcolor: a,
-                                      labelcolor: darkPrimeryColor,
-                                      suffix: null,
-                                      text: "Amount"),
-                                  SizedBox(height: Get.height * 0.05),
-                                ],
-                              ),
+                                      color: EvxColors.lightColor,
+                                      fontFamily: 'Gilroy Medium',
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "Add amount",
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy Bold",
+                                    fontSize: 16,
+                                    color: EvxColors.lightColor,
+                                  ),
+                                ),
+                                SizedBox(height: Get.height * 0.02),
+                                textfield(
+                                  controller: add,
+                                  feildcolor: EvxColors.a,
+                                  labelcolor: EvxColors.darkPrimeryColor,
+                                  suffix: null,
+                                  text: "Amount",
+                                ),
+                                SizedBox(height: Get.height * 0.05),
+                              ],
                             ),
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],

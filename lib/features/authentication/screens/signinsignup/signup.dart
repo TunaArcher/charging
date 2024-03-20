@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/customwidget.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../common/widgets/customwidget.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: b,
+      backgroundColor: EvxColors.b,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -39,7 +39,7 @@ class _SignUpState extends State<SignUp> {
                   Row(
                     children: [
                       Text(
-                        CustomStrings.hello,
+                        EvxCustomStrings.hello,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: height / 25,
@@ -48,7 +48,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       SizedBox(width: width / 80),
                       Text(
-                        CustomStrings.there,
+                        EvxCustomStrings.there,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: height / 25,
@@ -59,7 +59,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: height / 80),
                   Text(
-                    CustomStrings.information,
+                    EvxCustomStrings.information,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: height / 60,
@@ -68,7 +68,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: height / 200),
                   Text(
-                    CustomStrings.trips,
+                    EvxCustomStrings.trips,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: height / 60,
@@ -80,13 +80,13 @@ class _SignUpState extends State<SignUp> {
             ),
             SizedBox(height: height / 30),
             textField(
-              hinttext: CustomStrings.fullname,
-              labeltxt: CustomStrings.fullname,
+              hinttext: EvxCustomStrings.fullname,
+              labeltxt: EvxCustomStrings.fullname,
             ),
             SizedBox(height: height / 40),
             textField(
-              hinttext: CustomStrings.email,
-              labeltxt: CustomStrings.email,
+              hinttext: EvxCustomStrings.email,
+              labeltxt: EvxCustomStrings.email,
             ),
             SizedBox(height: height / 40),
             _buildPasswordTextField(),
@@ -95,8 +95,8 @@ class _SignUpState extends State<SignUp> {
               onTap: () {
                 // TODO :: HANDLE
               },
-              clr: darkblueColor,
-              title: CustomStrings.signup2,
+              clr: EvxColors.darkblueColor,
+              title: EvxCustomStrings.signup2,
             ),
             SizedBox(height: height / 30),
           ],
@@ -134,10 +134,10 @@ class _SignUpState extends State<SignUp> {
                           color: Colors.grey,
                         )),
             ),
-            labelText: CustomStrings.password,
+            labelText: EvxCustomStrings.password,
             labelStyle: TextStyle(
                 color: Colors.white.withOpacity(0.5), fontSize: height / 50),
-            hintText: CustomStrings.password,
+            hintText: EvxCustomStrings.password,
             hintStyle: TextStyle(
               color: Colors.white,
               fontSize: height / 55,

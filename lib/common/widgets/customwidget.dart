@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:goevynew/screens/bottom%20bar/about.dart';
 
-import 'color.dart';
-import 'media.dart';
+import '../../utils/constants/colors.dart';
+import '../../utils/constants/media.dart';
 
 //============================== Appbar ===========================================
 
@@ -78,10 +78,7 @@ appButton({Function()? onTap, String? title, Color? clr}) {
 
 //================================== Textfield ======================================
 
-textField({
-  String? hinttext,
-  String? labeltxt,
-}) {
+textField({String? hinttext, String? labeltxt,}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: width / 20),
     child: Container(
@@ -117,19 +114,19 @@ textField({
   );
 }
 
-CustomAppbar(
-    {String? centertext,
-    bool? center,
-    IconData? actionicon,
-    Function()? onclick,
-    double? redi}) {
+CustomAppbar({String? centertext, bool? center, IconData? actionicon, Function()? onclick, double? redi}) {
   return AppBar(
     elevation: 800,
     backgroundColor: Colors.white,
     centerTitle: center,
-    title: Text(centertext!,
-        style: const TextStyle(
-            fontSize: 20, color: Colors.black, fontFamily: "Gilroy Bold")),
+    title: Text(
+      centertext!,
+      style: const TextStyle(
+        fontSize: 20,
+        color: Colors.black,
+        fontFamily: "Gilroy Bold",
+      ),
+    ),
     leading: Transform.translate(
       offset: const Offset(-6, 0),
       child: const BackButton(color: Colors.black),
@@ -155,50 +152,45 @@ CustomAppbar(
 
 // \\======================================================================================
 
-textfield(
-    {String? text,
-    suffix,
-    Color? labelcolor,
-    feildcolor,
-    Color? tclr,
-    double? Width,
-    TextEditingController? controller,
-    Height}) {
+textfield({String? text, suffix, Color? labelcolor, feildcolor, Color? tclr, double? Width, TextEditingController? controller, Height}) {
   return Container(
       height: Height,
       width: Width,
       padding: const EdgeInsets.symmetric(vertical: 1),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: feildcolor),
+        borderRadius: BorderRadius.circular(15),
+        color: feildcolor,
+      ),
       child: TextField(
         style: TextStyle(color: tclr),
         controller: controller,
         decoration: InputDecoration(
           labelText: text,
           labelStyle: const TextStyle(
-              color: Colors.grey, fontFamily: "Gilroy Medium", fontSize: 15),
+            color: Colors.grey,
+            fontFamily: "Gilroy Medium",
+            fontSize: 15,
+          ),
           suffixIcon: Padding(
             padding: const EdgeInsets.all(6),
             child: suffix,
           ),
           border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15))),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
           enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Colors.grey,
-              ),
-              borderRadius: BorderRadius.circular(15)),
+            borderSide: const BorderSide(
+              color: Colors.grey,
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
         ),
       ));
 }
 
 // \\=====================================================================
 
-Button(
-    {String? buttontext,
-    Function()? onclick,
-    double? Width,
-    Color? buttoncolor}) {
+Button({String? buttontext, Function()? onclick, double? Width, Color? buttoncolor}) {
   return GestureDetector(
     onTap: onclick,
     child: Container(
@@ -219,12 +211,7 @@ Button(
 
 //============================================================================================================
 
-appbare(
-    {String? tital,
-    Color? txtclr,
-    Color? iconclr,
-    Color? butclr,
-    Color? brclr}) {
+appbare({String? tital, Color? txtclr, Color? iconclr, Color? butclr, Color? brclr}) {
   return AppBar(
     title: Padding(
       padding: EdgeInsets.only(top: height / 90),
@@ -268,41 +255,37 @@ appbare(
 
 //===============================================
 
-texfield(
-    {String? text,
-    suffix,
-    Color? labelcolor,
-    Function()? ontap,
-    feildcolor,
-    double? Width,
-    Height,
-    TextEditingController? controller,
-    String? Function(String?)? validator}) {
+texfield({String? text, suffix, Color? labelcolor, Function()? ontap, feildcolor, double? Width, Height, TextEditingController? controller, String? Function(String?)? validator}) {
   return Container(
-      height: Height,
-      width: Width,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: lightgreyColor),
-      child: TextFormField(
-        onTap: ontap,
-        controller: controller,
-        decoration: InputDecoration(
-          suffixIcon: Padding(
-            padding: const EdgeInsets.all(6),
-            child: suffix,
-          ),
-          border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15))),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: darkblueColor),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: lightgreyColor,
-              ),
-              borderRadius: BorderRadius.circular(15)),
+    height: Height,
+    width: Width,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15),
+      color: EvxColors.lightgreyColor,
+    ),
+    child: TextFormField(
+      onTap: ontap,
+      controller: controller,
+      decoration: InputDecoration(
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(6),
+          child: suffix,
         ),
-        validator: validator,
-      ));
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: EvxColors.darkblueColor),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: EvxColors.lightgreyColor,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+      validator: validator,
+    ),
+  );
 }

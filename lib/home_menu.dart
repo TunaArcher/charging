@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'utils/color.dart';
+import 'utils/constants/colors.dart';
 
 import 'features/history/screens/history/history_screen.dart';
 import 'features/home/screens/nearby/home_screen.dart';
@@ -35,9 +35,9 @@ class HomeMenu extends StatelessWidget {
             height: 80,
             animationDuration: const Duration(seconds: 3),
             selectedIndex: controller.selectedMenu.value,
-            backgroundColor: darkPrimeryColor,
+            backgroundColor: EvxColors.darkPrimeryColor,
             elevation: 0,
-            indicatorColor: darkPrimeryColor,
+            indicatorColor: EvxColors.darkPrimeryColor,
             onDestinationSelected: (index) =>
                 controller.selectedMenu.value = index,
             destinations: const [

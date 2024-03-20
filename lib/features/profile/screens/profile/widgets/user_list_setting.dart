@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../utils/color.dart';
-import '../../../../../utils/media.dart';
-import '../../../../../utils/string.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/media.dart';
+import '../../../../../utils/constants/string.dart';
 import '../../../controllers/profile_controller.dart';
 import '../saved_screen.dart';
 
@@ -28,7 +28,9 @@ class _UserListSettingState extends State<UserListSetting> {
             height: height / 4,
             width: double.infinity,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: a),
+              borderRadius: BorderRadius.circular(10),
+              color: EvxColors.a,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -56,7 +58,7 @@ class _UserListSettingState extends State<UserListSetting> {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: 'Gilroy Medium',
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                           ],
@@ -76,7 +78,7 @@ class _UserListSettingState extends State<UserListSetting> {
                         child: Icon(
                           Icons.navigate_next,
                           size: width / 10,
-                          color: lightColor,
+                          color: EvxColors.lightColor,
                         ),
                       ),
                       SizedBox(width: width / 30),
@@ -118,7 +120,7 @@ class _UserListSettingState extends State<UserListSetting> {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: 'Gilroy Medium',
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                           ],
@@ -132,7 +134,7 @@ class _UserListSettingState extends State<UserListSetting> {
                         child: Icon(
                           Icons.navigate_next,
                           size: width / 10,
-                          color: lightColor,
+                          color: EvxColors.lightColor,
                         ),
                       ),
                       SizedBox(width: width / 30),
@@ -160,10 +162,10 @@ class _UserListSettingState extends State<UserListSetting> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              CustomStrings.Logout,
+                              EvxCustomStrings.Logout,
                               style: TextStyle(
                                 fontSize: 20,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                           ],
@@ -177,7 +179,7 @@ class _UserListSettingState extends State<UserListSetting> {
                         child: Icon(
                           Icons.navigate_next,
                           size: width / 10,
-                          color: lightColor,
+                          color: EvxColors.lightColor,
                         ),
                       ),
                       SizedBox(width: width / 30),

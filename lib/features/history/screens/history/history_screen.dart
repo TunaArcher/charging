@@ -4,10 +4,10 @@ import 'package:flutter_switch/flutter_switch.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/customwidget.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../common/widgets/customwidget.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 // import 'saved_screen.dart';
 import 'package:charging/features/authentication/screens/signinsignup/signtab.dart';
@@ -29,7 +29,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Stack(
         children: [
           Padding(padding: EdgeInsets.only(top: height / 20)),
@@ -55,7 +55,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     child: Text(
                       'History (ref. EV LOGA)',
                       style: TextStyle(
-                        color: darkblueColor,
+                        color: EvxColors.darkblueColor,
                         fontFamily: 'Gilroy Bold',
                         fontWeight: FontWeight.w600,
                       ),
@@ -66,7 +66,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     child: Text(
                       '0 kWh',
                       style: TextStyle(
-                        color: lightColor,
+                        color: EvxColors.lightColor,
                         fontFamily: 'Gilroy Bold',
                         fontSize: height / 35,
                         fontWeight: FontWeight.w600,
@@ -77,16 +77,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     padding: EdgeInsets.only(top: height / 80),
                     child: Divider(
                       thickness: 2,
-                      color: greydark,
+                      color: EvxColors.greydark,
                       endIndent: width / 2,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: height / 140, left: width / 10),
+                    padding:
+                        EdgeInsets.only(top: height / 140, left: width / 10),
                     child: Text(
-                      CustomStrings.km,
+                      EvxCustomStrings.km,
                       style: TextStyle(
-                        color: lightColor,
+                        color: EvxColors.lightColor,
                         fontSize: height / 35,
                         fontFamily: 'Gilroy Medium',
                         fontWeight: FontWeight.w600,
@@ -117,10 +118,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   child: Text(
                     '2 hr 0 m',
                     style: TextStyle(
-                        color: lightColor,
-                        fontFamily: 'Gilroy Medium',
-                        fontSize: height / 35,
-                        fontWeight: FontWeight.w600),
+                      color: EvxColors.lightColor,
+                      fontFamily: 'Gilroy Medium',
+                      fontSize: height / 35,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],

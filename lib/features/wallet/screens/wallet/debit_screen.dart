@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
 
 class DebitScreen extends StatefulWidget {
   const DebitScreen({super.key});
@@ -59,7 +59,7 @@ class _DebitScreenState extends State<DebitScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Padding(
         padding: EdgeInsets.only(left: width / 30, right: width / 30),
         child: Container(
@@ -76,7 +76,9 @@ class _DebitScreenState extends State<DebitScreen> {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
-                      color: a, borderRadius: BorderRadius.circular(10)),
+                    color: EvxColors.a,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -94,27 +96,32 @@ class _DebitScreenState extends State<DebitScreen> {
                                 Text(
                                   '${transection[index]}',
                                   style: TextStyle(
-                                      fontFamily: 'Gilroy Medium',
-                                      fontSize: 16,
-                                      color: lightColor),
+                                    fontFamily: 'Gilroy Medium',
+                                    fontSize: 16,
+                                    color: EvxColors.lightColor,
+                                  ),
                                 ),
                                 Text(
                                   '${date[index]}',
                                   style: TextStyle(
-                                      fontFamily: 'Gilroy Medium',
-                                      fontSize: 14,
-                                      color: lightgreyColor),
+                                    fontFamily: 'Gilroy Medium',
+                                    fontSize: 14,
+                                    color: EvxColors.lightgreyColor,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ],
                       ),
-                      Text('${mony[index]}',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Gilroy Medium',
-                              color: lightColor)),
+                      Text(
+                        '${mony[index]}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Gilroy Medium',
+                          color: EvxColors.lightColor,
+                        ),
+                      ),
                     ],
                   ),
                 );
