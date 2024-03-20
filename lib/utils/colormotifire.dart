@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'color.dart';
 
 class ColorNotifire with ChangeNotifier {
-
   // bool isDark = false;
   bool isDark = true;
 

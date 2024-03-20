@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../constants/colors.dart';
 import '../helpers/helper_functions.dart';
 
 import '../../common/widgets/loaders/animation_loader.dart';
 
 /// A utility class for managing a full-screen loading dialog.
-class TFullScreenLoader {
+class EvxFullScreenLoader {
   /// Open a full-screen loading dialog with a given text and animation.
   /// This method doesn't return anything.
   ///
@@ -25,8 +24,8 @@ class TFullScreenLoader {
         canPop: false, // Disable popping with the back button
         child: Container(
           color: THelperFunctions.isDarkMode(Get.context!)
-              ? TColors.dark
-              : TColors.white,
+              ? Color(0xFF272727)
+              : Color(0xFFF6F6F6),
           width: double.infinity,
           height: double.infinity,
           child: Column(

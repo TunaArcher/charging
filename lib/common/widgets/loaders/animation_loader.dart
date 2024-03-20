@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 
 /// A widget for displaying an animated loading indicator with optional text and action button.
@@ -38,26 +37,26 @@ class TAnimationLoaderWidget extends StatelessWidget {
           Lottie.asset(animation,
               width: MediaQuery.of(context).size.width *
                   0.8), // Display Lottie animation
-          const SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: EvxSizes.defaultSpace),
           Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: EvxSizes.defaultSpace),
           showAction
               ? SizedBox(
                   width: 250,
                   child: OutlinedButton(
                     onPressed: onActionPressed,
-                    style:
-                        OutlinedButton.styleFrom(backgroundColor: TColors.dark),
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: Color(0xFF272727)),
                     child: Text(
                       actionText!,
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
-                          .apply(color: TColors.light),
+                          .apply(color: Color(0xFFF6F6F6)),
                     ),
                   ),
                 )

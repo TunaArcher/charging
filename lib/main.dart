@@ -9,21 +9,18 @@ import 'data/repositories/authentication/authentication_repository.dart';
 import 'package:charging/app.dart';
 
 void main() async {
-  // Widgets Binding
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  /// -- Widgets Binding
+  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  // Init Local Storage
+  /// -- GetX Local Storage
   await GetStorage.init();
 
-  // Await Native Splash
+  /// -- Await Splash until other items Load
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // TODO:: Initialize DB
-  await Future.delayed(Duration(seconds: 5));
-  FlutterNativeSplash.remove();
-
-  // TODO:: Initialize Authentication
+  /// -- Initialize & Authentication Repository
   Get.put(AuthenticationRepository());
 
+  /// -- Main App Starts here...
   runApp(const App());
 }
