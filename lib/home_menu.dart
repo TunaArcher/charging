@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'utils/color.dart';
+import 'utils/constants/colors.dart';
 
 import 'features/history/screens/history/history_screen.dart';
 import 'features/home/screens/nearby/home_screen.dart';

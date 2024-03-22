@@ -62,7 +62,7 @@ class AuthenticationRepository extends GetxController {
       // };
 
       dynamic data = {
-        'phone': '000000000',
+        'phone': '111111111',
         'password': '1234test'
       }; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
