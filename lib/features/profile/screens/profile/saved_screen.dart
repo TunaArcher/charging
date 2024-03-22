@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 import '../../../history/models/FruitDataModel.dart';
 import '../../../history/screens/history/reschould_screen.dart';
 
@@ -113,17 +113,17 @@ class _SavedScreenState extends State<SavedScreen> {
           },
           child: Icon(
             Icons.arrow_back_rounded,
-            color: lightColor,
+            color: EvxColors.lightColor,
           ),
         ),
         title: Text(
           'Saved Charging station',
-          style: TextStyle(color: lightColor),
+          style: TextStyle(color: EvxColors.lightColor),
         ),
-        backgroundColor: darkPrimeryColor,
+        backgroundColor: EvxColors.darkPrimeryColor,
         elevation: 0,
       ),
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,7 +154,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                     fontSize: width / 20,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.w600,
-                                    color: lightColor,
+                                    color: EvxColors.lightColor,
                                   ),
                                 ),
                               ],
@@ -176,7 +176,7 @@ class _SavedScreenState extends State<SavedScreen> {
                               height: height / 3.4,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: a,
+                                color: EvxColors.a,
                               ),
                               child: Column(
                                 children: [
@@ -220,7 +220,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                   fontSize: 16,
                                                   fontFamily: 'Gilroy Medium',
                                                   fontWeight: FontWeight.w600,
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                 ),
                                               ),
                                             ),
@@ -235,7 +235,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                   Icon(
                                                     Icons.location_on_outlined,
                                                     size: width / 20,
-                                                    color: greydark,
+                                                    color: EvxColors.greydark,
                                                   ),
                                                   Text(
                                                     adress[index],
@@ -245,7 +245,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                           'Gilroy Medium',
                                                       fontWeight:
                                                           FontWeight.w300,
-                                                      color: greydark,
+                                                      color: EvxColors.greydark,
                                                     ),
                                                   ),
                                                 ],
@@ -262,7 +262,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                       endIndent: width / 30,
                                       indent: width / 30,
                                       thickness: 1,
-                                      color: lightgreyColor,
+                                      color: EvxColors.lightgreyColor,
                                     ),
                                   ),
                                   Row(
@@ -286,7 +286,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                   fontSize: 15,
                                                   fontFamily: 'Gilroy Medium',
                                                   fontWeight: FontWeight.w600,
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                 ),
                                               )
                                             ],
@@ -300,12 +300,12 @@ class _SavedScreenState extends State<SavedScreen> {
                                               ),
                                               SizedBox(width: width / 80),
                                               Text(
-                                                CustomStrings.weel,
+                                                EvxCustomStrings.weel,
                                                 style: TextStyle(
                                                   fontSize: 15,
                                                   fontFamily: 'Gilroy Medium',
                                                   fontWeight: FontWeight.w600,
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                 ),
                                               )
                                             ],
@@ -331,7 +331,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                   fontSize: 15,
                                                   fontFamily: 'Gilroy Medium',
                                                   fontWeight: FontWeight.w600,
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                 ),
                                               )
                                             ],
@@ -345,12 +345,12 @@ class _SavedScreenState extends State<SavedScreen> {
                                               ),
                                               SizedBox(width: width / 80),
                                               Text(
-                                                CustomStrings.type,
+                                                EvxCustomStrings.type,
                                                 style: TextStyle(
                                                   fontSize: 15,
                                                   fontFamily: 'Gilroy Medium',
                                                   fontWeight: FontWeight.w600,
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                 ),
                                               )
                                             ],
@@ -371,7 +371,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                           onTap: () {},
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color: darkPrimeryColor,
+                                              color: EvxColors.darkPrimeryColor,
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                             ),
@@ -382,7 +382,7 @@ class _SavedScreenState extends State<SavedScreen> {
                                                 child: Text(
                                               'Remove',
                                               style: TextStyle(
-                                                color: lightColor,
+                                                color: EvxColors.lightColor,
                                                 fontFamily: 'Gilroy Medium',
                                                 fontSize: 16,
                                               ),

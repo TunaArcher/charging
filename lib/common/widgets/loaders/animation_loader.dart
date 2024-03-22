@@ -34,29 +34,30 @@ class TAnimationLoaderWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(animation,
-              width: MediaQuery.of(context).size.width *
-                  0.8), // Display Lottie animation
-          const SizedBox(height: EvxSizes.defaultSpace),
+          Lottie.asset(
+            animation,
+            width: MediaQuery.of(context).size.width * 0.8,
+          ), // Display Lottie animation
+          const SizedBox(height: 24.0),
           Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: EvxSizes.defaultSpace),
+          const SizedBox(height: 24.0),
           showAction
               ? SizedBox(
                   width: 250,
                   child: OutlinedButton(
                     onPressed: onActionPressed,
                     style: OutlinedButton.styleFrom(
-                        backgroundColor: Color(0xFF272727)),
+                      backgroundColor: Color(0xFF272727),
+                    ),
                     child: Text(
                       actionText!,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .apply(color: Color(0xFFF6F6F6)),
+                      style: Theme.of(context).textTheme.bodyMedium!.apply(
+                            color: Color(0xFFF6F6F6),
+                          ),
                     ),
                   ),
                 )

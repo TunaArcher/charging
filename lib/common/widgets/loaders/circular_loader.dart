@@ -21,13 +21,14 @@ class EvxCircularLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(EvxSizes.lg),
+      padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(color: backgroundColor, shape: BoxShape.circle),
       // Circular background
       child: Center(
         child: CircularProgressIndicator(
-            color: foregroundColor,
-            backgroundColor: Colors.transparent), // Circular loader
+          color: foregroundColor,
+          backgroundColor: Colors.transparent,
+        ), // Circular loader
       ),
     );
   }

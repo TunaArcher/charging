@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'bindings/general_bindings.dart';
 import 'routes/app_routes.dart';
 
-import 'package:charging/utils/media.dart';
+import 'package:charging/utils/constants/media.dart';
 
 import 'package:charging/features/authentication/screens/signinsignup/signtab.dart';
 

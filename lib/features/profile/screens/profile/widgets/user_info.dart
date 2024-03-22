@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../utils/color.dart';
-import '../../../../../utils/customwidget.dart';
-import '../../../../../utils/media.dart';
-import '../../../../../utils/string.dart';
+import '../../../../../common/widgets/customwidget.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/media.dart';
+import '../../../../../utils/constants/string.dart';
 
 class UserInfo extends StatefulWidget {
   const UserInfo({super.key});
@@ -14,7 +14,6 @@ class UserInfo extends StatefulWidget {
 }
 
 class _UserInfoState extends State<UserInfo> {
-
   TextEditingController Name = TextEditingController();
   TextEditingController Email = TextEditingController();
   TextEditingController no = TextEditingController();
@@ -29,7 +28,7 @@ class _UserInfoState extends State<UserInfo> {
           child: Container(
             height: height / 8,
             decoration: BoxDecoration(
-              color: a,
+              color: EvxColors.a,
               borderRadius: BorderRadius.circular(10),
             ),
             child: InkWell(
@@ -56,21 +55,21 @@ class _UserInfoState extends State<UserInfo> {
                       SizedBox(
                         width: width / 2,
                         child: Text(
-                          CustomStrings.username,
+                          EvxCustomStrings.username,
                           style: TextStyle(
                             fontFamily: 'Gilroy Medium',
                             fontSize: 20,
-                            color: lightColor,
+                            color: EvxColors.lightColor,
                           ),
                         ),
                       ),
                       SizedBox(height: height / 100),
                       Text(
-                        CustomStrings.useremail,
+                        EvxCustomStrings.useremail,
                         style: TextStyle(
                           fontFamily: 'Gilroy Medium',
                           fontSize: 15,
-                          color: greydark,
+                          color: EvxColors.greydark,
                         ),
                       ),
                     ],
@@ -79,7 +78,7 @@ class _UserInfoState extends State<UserInfo> {
                   Icon(
                     Icons.navigate_next_sharp,
                     size: width / 10,
-                    color: lightColor,
+                    color: EvxColors.lightColor,
                   )
                 ],
               ),
@@ -107,7 +106,7 @@ class _UserInfoState extends State<UserInfo> {
               // ignore: sized_box_for_whitespace
               child: Container(
                 decoration: BoxDecoration(
-                  color: darkPrimeryColor,
+                  color: EvxColors.darkPrimeryColor,
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(10),
                     topLeft: Radius.circular(10),
@@ -121,7 +120,7 @@ class _UserInfoState extends State<UserInfo> {
                       InkWell(
                         onTap: () {
                           setState(
-                                () {
+                            () {
                               Navigator.pop(context);
                             },
                           );
@@ -145,13 +144,13 @@ class _UserInfoState extends State<UserInfo> {
                             ),
                             child: Center(
                                 child: Text(
-                                  'Save',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Gilroy Bold',
-                                    fontSize: width / 20,
-                                  ),
-                                )),
+                              'Save',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Gilroy Bold',
+                                fontSize: width / 20,
+                              ),
+                            )),
                           ),
                         ),
                       ),
@@ -164,7 +163,7 @@ class _UserInfoState extends State<UserInfo> {
                               child: Text(
                                 'Edit Profile',
                                 style: TextStyle(
-                                  color: lightColor,
+                                  color: EvxColors.lightColor,
                                   fontFamily: 'Gilroy Medium',
                                   fontSize: 18,
                                 ),
@@ -175,15 +174,15 @@ class _UserInfoState extends State<UserInfo> {
                               style: TextStyle(
                                 fontFamily: "Gilroy Bold",
                                 fontSize: 16,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                             SizedBox(height: Get.height * 0.02),
                             textfield(
-                              tclr: lightColor,
+                              tclr: EvxColors.lightColor,
                               controller: Name,
-                              feildcolor: a,
-                              labelcolor: darkPrimeryColor,
+                              feildcolor: EvxColors.a,
+                              labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
                               text: "Enter your Name",
                             ),
@@ -193,15 +192,15 @@ class _UserInfoState extends State<UserInfo> {
                               style: TextStyle(
                                 fontFamily: "Gilroy Bold",
                                 fontSize: 16,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                             SizedBox(height: Get.height * 0.01),
                             textfield(
-                              tclr: lightColor,
+                              tclr: EvxColors.lightColor,
                               controller: Email,
-                              feildcolor: a,
-                              labelcolor: darkPrimeryColor,
+                              feildcolor: EvxColors.a,
+                              labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
                               text: "Enter your Email Address",
                             ),
@@ -211,17 +210,17 @@ class _UserInfoState extends State<UserInfo> {
                               style: TextStyle(
                                 fontFamily: "Gilroy Bold",
                                 fontSize: 16,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                             SizedBox(height: Get.height * 0.01),
                             Padding(
                               padding: EdgeInsets.only(bottom: height / 10),
                               child: textfield(
-                                tclr: darkblueColor,
+                                tclr: EvxColors.darkblueColor,
                                 controller: no,
-                                feildcolor: a,
-                                labelcolor: darkPrimeryColor,
+                                feildcolor: EvxColors.a,
+                                labelcolor: EvxColors.darkPrimeryColor,
                                 suffix: null,
                                 text: "Enter Mobile Number",
                               ),

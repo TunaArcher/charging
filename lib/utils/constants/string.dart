@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-class CustomStrings {
+class EvxCustomStrings {
   static const String filter = 'Filter';
   static const String reset = 'Reset';
   static const String sort = 'Sort';

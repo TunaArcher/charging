@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
 
 class CreditScreen extends StatefulWidget {
   const CreditScreen({super.key});
@@ -58,7 +58,7 @@ class _CreditScreenState extends State<CreditScreen> {
     ];
 
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Padding(
         padding: EdgeInsets.only(left: width / 30, right: width / 30),
         child: Container(
@@ -75,7 +75,9 @@ class _CreditScreenState extends State<CreditScreen> {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
-                      color: a, borderRadius: BorderRadius.circular(10)),
+                    color: EvxColors.a,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,14 +97,14 @@ class _CreditScreenState extends State<CreditScreen> {
                                   style: TextStyle(
                                       fontFamily: 'Gilroy Medium',
                                       fontSize: 16,
-                                      color: lightColor),
+                                      color: EvxColors.lightColor),
                                 ),
                                 Text(
                                   '${date[index]}',
                                   style: TextStyle(
                                       fontFamily: 'Gilroy Medium',
                                       fontSize: 14,
-                                      color: lightgreyColor),
+                                      color: EvxColors.lightgreyColor),
                                 ),
                               ],
                             ),
@@ -113,7 +115,7 @@ class _CreditScreenState extends State<CreditScreen> {
                           style: TextStyle(
                               fontSize: 14,
                               fontFamily: 'Gilroy Medium',
-                              color: lightColor)),
+                              color: EvxColors.lightColor)),
                     ],
                   ),
                 );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../utils/color.dart';
-import '../../../../../utils/media.dart';
-import '../../../../../utils/string.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/media.dart';
+import '../../../../../utils/constants/string.dart';
 import '../../../controllers/profile_controller.dart';
 import '../healp_screen.dart';
 import '../saved_screen.dart';
@@ -26,7 +26,9 @@ class _UserHelperMenuState extends State<UserHelperMenu> {
           child: Container(
             height: height / 8,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: a),
+              borderRadius: BorderRadius.circular(10),
+              color: EvxColors.a,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -46,17 +48,17 @@ class _UserHelperMenuState extends State<UserHelperMenu> {
                       SizedBox(
                         width: width / 1.7,
                         child: Text(
-                          CustomStrings.help,
+                          EvxCustomStrings.help,
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Gilroy Medium',
-                            color: lightColor,
+                            color: EvxColors.lightColor,
                           ),
                         ),
                       ),
                       SizedBox(width: width / 25.3),
                       Icon(Icons.navigate_next_rounded,
-                          size: width / 10, color: lightColor),
+                          size: width / 10, color: EvxColors.lightColor),
                       SizedBox(width: width / 30),
                     ],
                   ),

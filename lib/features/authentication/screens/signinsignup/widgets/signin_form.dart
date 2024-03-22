@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../home_menu.dart';
-import '../../../../../utils/color.dart';
-import '../../../../../utils/customwidget.dart';
-import '../../../../../utils/media.dart';
-import '../../../../../utils/string.dart';
+import '../../../../../common/widgets/customwidget.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/media.dart';
+import '../../../../../utils/constants/string.dart';
 import '../../../controllers/login_controller.dart';
 
 class SigninForm extends StatefulWidget {
@@ -51,11 +51,11 @@ class _SigninFormState extends State<SigninForm> {
                   suffixIcon: Padding(
                     padding: EdgeInsets.all(height / 50),
                   ),
-                  labelText: CustomStrings.phone,
+                  labelText: EvxCustomStrings.phone,
                   labelStyle: TextStyle(
                       color: Colors.white.withOpacity(0.5),
                       fontSize: height / 50),
-                  hintText: CustomStrings.phone,
+                  hintText: EvxCustomStrings.phone,
                   hintStyle: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontSize: height / 55,
@@ -109,12 +109,12 @@ class _SigninFormState extends State<SigninForm> {
                             ),
                     ),
                   ),
-                  labelText: CustomStrings.password,
+                  labelText: EvxCustomStrings.password,
                   labelStyle: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontSize: height / 50,
                   ),
-                  hintText: CustomStrings.password,
+                  hintText: EvxCustomStrings.password,
                   hintStyle: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontSize: height / 55,
@@ -141,8 +141,8 @@ class _SigninFormState extends State<SigninForm> {
             onTap: () {
               controller.phoneAndPasswordSignIn();
             },
-            clr: darkblueColor,
-            title: CustomStrings.signin2,
+            clr: EvxColors.darkblueColor,
+            title: EvxCustomStrings.signin2,
           ),
           SizedBox(height: height / 40),
 

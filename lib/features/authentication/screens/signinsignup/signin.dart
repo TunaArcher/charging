@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
+import '../../../../utils/constants/colors.dart';
 
 import 'widgets/signin_form.dart';
 import 'widgets/signin_header.dart';
@@ -11,7 +11,7 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: b,
+      backgroundColor: EvxColors.b,
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
 import 'charging_point_station_screen.dart';
 
 List<Map<String, dynamic>> data = [
@@ -176,11 +176,11 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           decoration: InputDecoration(
             filled: true,
-            fillColor: serchbaard,
+            fillColor: EvxColors.serchbaard,
             isDense: true,
             hintText: "Find a gas station",
             hintStyle: TextStyle(
-              color: greydark.withOpacity(0.8),
+              color: EvxColors.greydark.withOpacity(0.8),
               fontSize: height / 55,
             ),
             prefixIcon: Padding(
@@ -192,15 +192,15 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Icon(
                 Icons.search,
                 size: width / 15,
-                color: lightColor,
+                color: EvxColors.lightColor,
               ),
             ),
             enabledBorder: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
-                borderSide: BorderSide(color: greydark.withOpacity(0.3))),
+                borderSide: BorderSide(color: EvxColors.greydark.withOpacity(0.3))),
             focusedBorder: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
-                borderSide: BorderSide(color: greydark.withOpacity(0.3))),
+                borderSide: BorderSide(color: EvxColors.greydark.withOpacity(0.3))),
           ),
         ),
       ),
@@ -244,8 +244,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: height / 4,
                           width: width / 1.5,
                           decoration: BoxDecoration(
-                            color: serchbaard,
-                            border: Border.all(width: 1, color: lightgreyColor),
+                            color: EvxColors.serchbaard,
+                            border: Border.all(width: 1, color: EvxColors.lightgreyColor),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Stack(
@@ -281,7 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     '$rat',
                                                     style: TextStyle(
                                                       fontSize: 15,
-                                                      color: lightColor,
+                                                      color: EvxColors.lightColor,
                                                     ),
                                                   ),
                                                   SizedBox(width: width / 40),
@@ -331,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         fontSize: 18,
                                                         fontFamily:
                                                             'Gilroy Medium',
-                                                        color: lightColor,
+                                                        color: EvxColors.lightColor,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -347,7 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(
                                                       fontSize: 14,
-                                                      color: greydark,
+                                                      color: EvxColors.greydark,
                                                     ),
                                                   ),
                                                   SizedBox(
@@ -358,7 +358,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           TextOverflow.ellipsis,
                                                       style: TextStyle(
                                                         fontSize: 14,
-                                                        color: greydark,
+                                                        color: EvxColors.greydark,
                                                       ),
                                                     ),
                                                   ),
@@ -380,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           TextOverflow.ellipsis,
                                                       style: TextStyle(
                                                         fontSize: 14,
-                                                        color: greydark,
+                                                        color: EvxColors.greydark,
                                                       ),
                                                     ),
                                                   ),
@@ -404,7 +404,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           TextOverflow.ellipsis,
                                                       style: TextStyle(
                                                         fontSize: 14,
-                                                        color: greydark,
+                                                        color: EvxColors.greydark,
                                                       ),
                                                     ),
                                                   ),
@@ -433,7 +433,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 'Connection',
                                                 style: TextStyle(
                                                   fontSize: 14,
-                                                  color: greydark,
+                                                  color: EvxColors.greydark,
                                                 ),
                                               ),
                                               SizedBox(
@@ -442,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               Text(
                                                 '${info[_index]['type']}',
                                                 style: TextStyle(
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                   fontSize: 16,
                                                 ),
                                               ),
@@ -456,7 +456,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 'Speed',
                                                 style: TextStyle(
                                                   fontSize: 14,
-                                                  color: greydark,
+                                                  color: EvxColors.greydark,
                                                 ),
                                               ),
                                               SizedBox(
@@ -465,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               Text(
                                                 '${info[_index]['kw']}',
                                                 style: TextStyle(
-                                                  color: lightColor,
+                                                  color: EvxColors.lightColor,
                                                   fontSize: 16,
                                                 ),
                                               ),
@@ -479,7 +479,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 'Facilities',
                                                 style: TextStyle(
                                                   fontSize: 14,
-                                                  color: greydark,
+                                                  color: EvxColors.greydark,
                                                 ),
                                               ),
                                               SizedBox(
@@ -597,7 +597,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Text(
                                             'Add : ',
                                             style: TextStyle(
-                                                color: lightColor,
+                                                color: EvxColors.lightColor,
                                                 fontFamily: 'Gilroy Bold'),
                                           ),
                                           SizedBox(
@@ -605,7 +605,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             child: Text(
                                               '${info[_index]['add']}',
                                               style: TextStyle(
-                                                color: greydark,
+                                                color: EvxColors.greydark,
                                                 fontFamily: 'Gilroy Medium',
                                               ),
                                             ),

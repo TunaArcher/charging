@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 import '../../models/FruitDataModel.dart';
 
@@ -29,7 +29,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Padding(
           padding: EdgeInsets.only(left: width / 30, right: width / 30),
           child: Stack(
@@ -52,17 +52,17 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                           child: Icon(
                             Icons.keyboard_backspace_outlined,
                             size: width / 12,
-                            color: lightColor,
+                            color: EvxColors.lightColor,
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: width / 40),
                           child: Text(
-                            CustomStrings.reschuled,
+                            EvxCustomStrings.reschuled,
                             style: TextStyle(
                               fontSize: width / 18,
                               fontWeight: FontWeight.w600,
-                              color: lightColor,
+                              color: EvxColors.lightColor,
                             ),
                           ),
                         ),
@@ -74,7 +74,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                     child: Container(
                       height: height / 8,
                       decoration: BoxDecoration(
-                        color: a,
+                        color: EvxColors.a,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Align(
@@ -92,7 +92,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                                   topLeft: Radius.circular(5),
                                   bottomLeft: Radius.circular(5),
                                 ),
-                                color: a,
+                                color: EvxColors.a,
                               ),
                               width: width / 5,
                             ),
@@ -107,13 +107,13 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                                     style: TextStyle(
                                         fontSize: width / 22,
                                         fontWeight: FontWeight.w600,
-                                        color: lightColor),
+                                        color: EvxColors.lightColor),
                                   ),
                                   Row(
                                     children: [
                                       Icon(
                                         Icons.location_on,
-                                        color: greydark,
+                                        color: EvxColors.greydark,
                                         size: width / 25,
                                       ),
                                       SizedBox(
@@ -123,7 +123,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                                         widget.fruitDataModel.add,
                                         style: TextStyle(
                                           fontSize: width / 26,
-                                          color: greydark,
+                                          color: EvxColors.greydark,
                                         ),
                                       ),
                                     ],
@@ -137,7 +137,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                                         widget.fruitDataModel.chargeid,
                                         style: TextStyle(
                                           fontSize: width / 26,
-                                          color: lightColor,
+                                          color: EvxColors.lightColor,
                                         ),
                                       ),
                                       Padding(
@@ -145,7 +145,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                                           left: width / 4.5,
                                         ),
                                         child: Text(
-                                          CustomStrings.profilw,
+                                          EvxCustomStrings.profilw,
                                           style: TextStyle(
                                             fontSize: width / 30,
                                             color: Colors.blue,
@@ -169,7 +169,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                       style: TextStyle(
                         fontSize: width / 20,
                         fontWeight: FontWeight.w600,
-                        color: lightColor,
+                        color: EvxColors.lightColor,
                       ),
                     ),
                   ),
@@ -190,7 +190,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                               style: TextStyle(
                                   fontSize: width / 20,
                                   fontWeight: FontWeight.w600,
-                                  color: lightColor),
+                                  color: EvxColors.lightColor),
                             ),
                             SizedBox(
                               height: height / 80,
@@ -198,12 +198,14 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                             Text(
                               'Estimated time remining',
                               style: TextStyle(
-                                  fontSize: width / 25, color: lightgreyColor),
+                                  fontSize: width / 25,
+                                  color: EvxColors.lightgreyColor),
                             ),
                             Text(
                               'for full charge',
                               style: TextStyle(
-                                  fontSize: width / 25, color: lightgreyColor),
+                                  fontSize: width / 25,
+                                  color: EvxColors.lightgreyColor),
                             ),
                             SizedBox(
                               height: height / 40,
@@ -213,7 +215,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                               style: TextStyle(
                                   fontSize: width / 20,
                                   fontWeight: FontWeight.w600,
-                                  color: lightColor),
+                                  color: EvxColors.lightColor),
                             ),
                             SizedBox(
                               height: height / 80,
@@ -221,12 +223,14 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                             Text(
                               'Estimated full charge',
                               style: TextStyle(
-                                  fontSize: width / 25, color: lightgreyColor),
+                                  fontSize: width / 25,
+                                  color: EvxColors.lightgreyColor),
                             ),
                             Text(
                               'costs',
                               style: TextStyle(
-                                  fontSize: width / 25, color: lightgreyColor),
+                                  fontSize: width / 25,
+                                  color: EvxColors.lightgreyColor),
                             ),
                           ],
                         ),
@@ -238,21 +242,21 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                               style: TextStyle(
                                   fontSize: width / 20,
                                   fontWeight: FontWeight.w600,
-                                  color: lightColor),
+                                  color: EvxColors.lightColor),
                             ),
-                            SizedBox(
-                              height: height / 80,
-                            ),
+                            SizedBox(height: height / 80),
                             Text(
                               'Total cost accrued for',
                               style: TextStyle(
-                                  fontSize: width / 25, color: lightgreyColor),
+                                fontSize: width / 25,
+                                color: EvxColors.lightgreyColor,
+                              ),
                             ),
                             Text(
                               'this charge',
                               style: TextStyle(
                                 fontSize: width / 25,
-                                color: lightgreyColor,
+                                color: EvxColors.lightgreyColor,
                               ),
                             ),
                           ],
@@ -328,7 +332,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                         ),
                       ],
                       shape: BoxShape.circle,
-                      color: darkPrimeryColor,
+                      color: EvxColors.darkPrimeryColor,
                       // borderRadius: BorderRadius.circular(180),
                     ),
                   ),
@@ -341,7 +345,9 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                     height: height / 4,
                     width: width / 1.9,
                     decoration: BoxDecoration(
-                        color: a, borderRadius: BorderRadius.circular(100)),
+                      color: EvxColors.a,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
                   ),
                 ),
               ),
@@ -353,7 +359,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                     radius: width / 2.5,
                     lineWidth: width / 16,
                     backgroundColor: Colors.blue.shade100,
-                    progressColor: lightblueColor,
+                    progressColor: EvxColors.lightblueColor,
                     percent: 0.76,
                     circularStrokeCap: CircularStrokeCap.round,
                     center: Column(
@@ -361,7 +367,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                       children: [
                         Icon(
                           Icons.battery_charging_full_rounded,
-                          color: lightColor,
+                          color: EvxColors.lightColor,
                           size: width / 7,
                         ),
                         SizedBox(
@@ -370,7 +376,7 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                         Text(
                           '76 %',
                           style: TextStyle(
-                            color: lightColor,
+                            color: EvxColors.lightColor,
                             fontSize: width / 10,
                           ),
                         ),
@@ -380,7 +386,8 @@ class _ReshiduledScreenState extends State<ReshiduledScreen> {
                         Text(
                           'Charged',
                           style: TextStyle(
-                              color: lightColor, fontSize: width / 20),
+                              color: EvxColors.lightColor,
+                              fontSize: width / 20),
                         ),
                       ],
                     ),

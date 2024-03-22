@@ -1,9 +1,9 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 class ChargingPointStationScreen extends StatefulWidget {
   const ChargingPointStationScreen({super.key});
@@ -18,7 +18,7 @@ class _ChargingPointStationScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Stack(
         children: [
           Padding(
@@ -33,7 +33,7 @@ class _ChargingPointStationScreenState
                   },
                   icon: Icon(
                     Icons.arrow_back_sharp,
-                    color: lightColor,
+                    color: EvxColors.lightColor,
                     size: width / 12,
                   ),
                 ),
@@ -42,7 +42,7 @@ class _ChargingPointStationScreenState
                   style: TextStyle(
                     fontSize: width / 20,
                     fontWeight: FontWeight.w600,
-                    color: lightColor,
+                    color: EvxColors.lightColor,
                     fontFamily: 'Gilroy Medium',
                   ),
                 ),
@@ -71,14 +71,14 @@ class _ChargingPointStationScreenState
                             fontSize: width / 13,
                             fontFamily: 'Gilroy Medium',
                             fontWeight: FontWeight.w600,
-                            color: lightColor,
+                            color: EvxColors.lightColor,
                           ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: height / 80),
                         child: DottedLine(
-                          dashColor: greydark,
+                          dashColor: EvxColors.greydark,
                           dashLength: 6,
                         ),
                       ),
@@ -89,10 +89,10 @@ class _ChargingPointStationScreenState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              CustomStrings.station,
+                              EvxCustomStrings.station,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
-                                color: greydark,
+                                color: EvxColors.greydark,
                                 fontSize: width / 22,
                               ),
                             )
@@ -106,12 +106,12 @@ class _ChargingPointStationScreenState
                         child: Row(
                           children: [
                             Text(
-                              CustomStrings.stationname,
+                              EvxCustomStrings.stationname,
                               style: TextStyle(
                                 fontSize: width / 20,
                                 fontFamily: 'Gilroy Medium',
                                 fontWeight: FontWeight.w600,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                               ),
                             ),
                             SizedBox(width: width / 30),
@@ -141,30 +141,30 @@ class _ChargingPointStationScreenState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  CustomStrings.timee,
+                                  EvxCustomStrings.timee,
                                   style: TextStyle(
                                     fontSize: width / 22,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.normal,
-                                    color: greydark,
+                                    color: EvxColors.greydark,
                                   ),
                                 ),
                                 Text(
-                                  CustomStrings.may,
+                                  EvxCustomStrings.may,
                                   style: TextStyle(
                                     fontSize: width / 20,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.w600,
-                                    color: lightColor,
+                                    color: EvxColors.lightColor,
                                   ),
                                 ),
                                 Text(
-                                  CustomStrings.am,
+                                  EvxCustomStrings.am,
                                   style: TextStyle(
                                     fontSize: width / 20,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.w600,
-                                    color: lightColor,
+                                    color: EvxColors.lightColor,
                                   ),
                                 ),
                               ],
@@ -174,21 +174,21 @@ class _ChargingPointStationScreenState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  CustomStrings.duration,
+                                  EvxCustomStrings.duration,
                                   style: TextStyle(
                                     fontSize: width / 22,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.normal,
-                                    color: greydark,
+                                    color: EvxColors.greydark,
                                   ),
                                 ),
                                 Text(
-                                  CustomStrings.min,
+                                  EvxCustomStrings.min,
                                   style: TextStyle(
                                     fontSize: width / 20,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.w600,
-                                    color: lightColor,
+                                    color: EvxColors.lightColor,
                                   ),
                                 )
                               ],
@@ -198,21 +198,21 @@ class _ChargingPointStationScreenState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  CustomStrings.units,
+                                  EvxCustomStrings.units,
                                   style: TextStyle(
                                     fontSize: width / 22,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.normal,
-                                    color: greydark,
+                                    color: EvxColors.greydark,
                                   ),
                                 ),
                                 Text(
-                                  CustomStrings.kwh,
+                                  EvxCustomStrings.kwh,
                                   style: TextStyle(
                                     fontSize: width / 20,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.w600,
-                                    color: lightColor,
+                                    color: EvxColors.lightColor,
                                   ),
                                 )
                               ],
@@ -231,23 +231,23 @@ class _ChargingPointStationScreenState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  CustomStrings.units,
+                                  EvxCustomStrings.units,
                                   style: TextStyle(
                                     fontSize: width / 22,
                                     fontFamily: 'Gilroy Medium',
                                     fontWeight: FontWeight.normal,
-                                    color: greydark,
+                                    color: EvxColors.greydark,
                                   ),
                                 ),
                                 Row(
                                   children: [
                                     Text(
-                                      CustomStrings.kwh,
+                                      EvxCustomStrings.kwh,
                                       style: TextStyle(
                                         fontSize: width / 20,
                                         fontFamily: 'Gilroy Medium',
                                         fontWeight: FontWeight.w600,
-                                        color: lightColor,
+                                        color: EvxColors.lightColor,
                                       ),
                                     ),
                                     Padding(
@@ -314,21 +314,21 @@ class _ChargingPointStationScreenState
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        CustomStrings.cardending,
+                                        EvxCustomStrings.cardending,
                                         style: TextStyle(
                                           fontSize: width / 22,
                                           fontFamily: 'Gilroy Medium',
                                           fontWeight: FontWeight.w600,
-                                          color: lightColor,
+                                          color: EvxColors.lightColor,
                                         ),
                                       ),
                                       Text(
-                                        CustomStrings.transectionid,
+                                        EvxCustomStrings.transectionid,
                                         style: TextStyle(
                                           fontSize: width / 25,
                                           fontFamily: 'Gilroy Medium',
                                           fontWeight: FontWeight.normal,
-                                          color: greydark,
+                                          color: EvxColors.greydark,
                                         ),
                                       ),
                                     ],
@@ -407,7 +407,7 @@ class _ChargingPointStationScreenState
                                               BorderRadius.circular(10)),
                                       child: Center(
                                         child: Text(
-                                          CustomStrings.get,
+                                          EvxCustomStrings.get,
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontFamily: 'Gilroy Bold',

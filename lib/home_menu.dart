@@ -33,9 +33,9 @@ class HomeMenu extends StatelessWidget {
             height: 80,
             animationDuration: const Duration(seconds: 3),
             selectedIndex: controller.selectedMenu.value,
-            backgroundColor: darkPrimeryColor,
+            backgroundColor: EvxColors.darkPrimeryColor,
             elevation: 0,
-            indicatorColor: darkPrimeryColor,
+            indicatorColor: EvxColors.darkPrimeryColor,
             onDestinationSelected: (index) =>
                 controller.selectedMenu.value = index,
             destinations: const [

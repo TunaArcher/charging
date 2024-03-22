@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
 
 import 'widgets/user_helper_menu.dart';
 import 'widgets/user_info.dart';
@@ -23,7 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: Padding(
         padding: EdgeInsets.only(top: height / 20),
         child: SingleChildScrollView(

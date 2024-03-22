@@ -1,10 +1,10 @@
+import 'package:charging/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({super.key});
@@ -41,7 +41,7 @@ class _ScanScreenState extends State<ScanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkPrimeryColor,
+      backgroundColor: EvxColors.darkPrimeryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -65,7 +65,7 @@ class _ScanScreenState extends State<ScanScreen> {
       padding: EdgeInsets.only(left: width / 30, right: width / 30),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(width: 1, color: greydark),
+          border: Border.all(width: 1, color: EvxColors.greydark),
           borderRadius: BorderRadius.circular(0),
         ),
         height: height / 1.8,
@@ -92,7 +92,7 @@ class _ScanScreenState extends State<ScanScreen> {
         decoration: BoxDecoration(
           border: Border.all(width: 1, color: Colors.grey.withOpacity(0.2)),
           borderRadius: BorderRadius.circular(10),
-          color: a,
+          color: EvxColors.a,
         ),
         child: Stack(
           children: [
@@ -132,7 +132,7 @@ class _ScanScreenState extends State<ScanScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              CustomStrings.open,
+                              EvxCustomStrings.open,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
                                 fontSize: width / 25,
@@ -154,11 +154,11 @@ class _ScanScreenState extends State<ScanScreen> {
                         Row(
                           children: [
                             Text(
-                              CustomStrings.qrstation,
+                              EvxCustomStrings.qrstation,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
                                 fontSize: width / 21,
-                                color: lightColor,
+                                color: EvxColors.lightColor,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -169,14 +169,14 @@ class _ScanScreenState extends State<ScanScreen> {
                             Icon(
                               Icons.location_on_outlined,
                               size: width / 25,
-                              color: greydark,
+                              color: EvxColors.greydark,
                             ),
                             Text(
-                              CustomStrings.qrstation,
+                              EvxCustomStrings.qrstation,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
                                 fontSize: width / 24,
-                                color: greydark,
+                                color: EvxColors.greydark,
                               ),
                             ),
                           ],
@@ -186,14 +186,14 @@ class _ScanScreenState extends State<ScanScreen> {
                             Icon(
                               Icons.directions,
                               size: width / 24,
-                              color: greydark,
+                              color: EvxColors.greydark,
                             ),
                             Text(
-                              CustomStrings.qraddress,
+                              EvxCustomStrings.qraddress,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
                                 fontSize: width / 25,
-                                color: greydark,
+                                color: EvxColors.greydark,
                               ),
                             ),
                           ],
@@ -203,14 +203,14 @@ class _ScanScreenState extends State<ScanScreen> {
                             Icon(
                               Icons.charging_station,
                               size: width / 24,
-                              color: greydark,
+                              color: EvxColors.greydark,
                             ),
                             Text(
-                              CustomStrings.qrlocation,
+                              EvxCustomStrings.qrlocation,
                               style: TextStyle(
                                 fontFamily: 'Gilroy Medium',
                                 fontSize: width / 25,
-                                color: greydark,
+                                color: EvxColors.greydark,
                               ),
                             ),
                           ],
@@ -228,7 +228,7 @@ class _ScanScreenState extends State<ScanScreen> {
                 children: [
                   Icon(
                     Icons.next_plan,
-                    color: lightblueColor,
+                    color: EvxColors.lightblueColor,
                     size: width / 15,
                   ),
                   Padding(
@@ -237,11 +237,11 @@ class _ScanScreenState extends State<ScanScreen> {
                     child: Row(
                       children: [
                         Text(
-                          CustomStrings.qrrate,
+                          EvxCustomStrings.qrrate,
                           style: TextStyle(
                             fontFamily: 'Gilroy Medium',
                             fontSize: width / 25,
-                            color: greydark,
+                            color: EvxColors.greydark,
                           ),
                         ),
                         Icon(

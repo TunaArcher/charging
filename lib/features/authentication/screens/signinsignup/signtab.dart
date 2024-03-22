@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/color.dart';
-import '../../../../utils/media.dart';
-import '../../../../utils/string.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/media.dart';
+import '../../../../utils/constants/string.dart';
 
 import 'package:charging/features/authentication/screens/signinsignup/signin.dart';
 import 'package:charging/features/authentication/screens/signinsignup/signup.dart';
@@ -31,7 +31,7 @@ class _SignTabState extends State<SignTab> with SingleTickerProviderStateMixin {
     ];
 
     return Scaffold(
-      backgroundColor: b,
+      backgroundColor: EvxColors.b,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -63,7 +63,7 @@ class _SignTabState extends State<SignTab> with SingleTickerProviderStateMixin {
                             tabs: [
                               Tab(
                                 child: Text(
-                                  CustomStrings.signin,
+                                  EvxCustomStrings.signin,
                                   style: TextStyle(
                                     fontFamily: 'Gilroy Bold',
                                     fontSize: height / 50,
@@ -72,7 +72,7 @@ class _SignTabState extends State<SignTab> with SingleTickerProviderStateMixin {
                               ),
                               Tab(
                                 child: Text(
-                                  CustomStrings.signup,
+                                  EvxCustomStrings.signup,
                                   style: TextStyle(
                                     fontFamily: 'Gilroy Bold',
                                     fontSize: height / 50,
