@@ -1,3 +1,4 @@
+import 'package:charging/data/repositories/profile/profile_repository.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ void main() async {
 
   /// -- Initialize & Authentication Repository
   Get.put(AuthenticationRepository());
+  Get.put(ProfileRepository());
 
   /// -- Main App Starts here...
   runApp(const App());
