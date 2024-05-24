@@ -1,5 +1,7 @@
+import 'package:charging/features/profile/controllers/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../../../common/widgets/customwidget.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -14,9 +16,21 @@ class UserInfo extends StatefulWidget {
 }
 
 class _UserInfoState extends State<UserInfo> {
-  TextEditingController Name = TextEditingController();
-  TextEditingController Email = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController lastName = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController no = TextEditingController();
+
+  final localStorage = GetStorage();
+  late String _username;
+  late String _email;
+  
+  @override
+  void initState() {
+    _username = localStorage.read('username') ?? '';
+    _email = localStorage.read('email') ?? '';
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +69,7 @@ class _UserInfoState extends State<UserInfo> {
                       SizedBox(
                         width: width / 2,
                         child: Text(
-                          EvxCustomStrings.username,
+                          _username,
                           style: TextStyle(
                             fontFamily: 'Gilroy Medium',
                             fontSize: 20,
@@ -65,7 +79,7 @@ class _UserInfoState extends State<UserInfo> {
                       ),
                       SizedBox(height: height / 100),
                       Text(
-                        EvxCustomStrings.useremail,
+                        _email,
                         style: TextStyle(
                           fontFamily: 'Gilroy Medium',
                           fontSize: 15,
@@ -90,8 +104,9 @@ class _UserInfoState extends State<UserInfo> {
   }
 
   _EditProfile() {
+    final controller = Get.put(ProfileController());
     return showModalBottomSheet(
-      isDismissible: false,
+      isDismissible: true,
       isScrollControlled: true,
       context: context,
       shape: const RoundedRectangleBorder(
@@ -121,7 +136,8 @@ class _UserInfoState extends State<UserInfo> {
                         onTap: () {
                           setState(
                             () {
-                              Navigator.pop(context);
+                              controller.updateProfile();
+                              // Navigator.pop(context);
                             },
                           );
                         },
@@ -177,16 +193,34 @@ class _UserInfoState extends State<UserInfo> {
                                 color: EvxColors.lightColor,
                               ),
                             ),
-                            SizedBox(height: Get.height * 0.02),
+                            SizedBox(height: Get.height * 0.01),
                             textfield(
                               tclr: EvxColors.lightColor,
-                              controller: Name,
+                              controller: controller.name,
                               feildcolor: EvxColors.a,
                               labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
                               text: "Enter your Name",
                             ),
-                            SizedBox(height: Get.height * 0.02),
+                            SizedBox(height: Get.height * 0.01),
+                            Text(
+                              "Lastname",
+                              style: TextStyle(
+                                fontFamily: "Gilroy Bold",
+                                fontSize: 16,
+                                color: EvxColors.lightColor,
+                              ),
+                            ),
+                            SizedBox(height: Get.height * 0.01),
+                            textfield(
+                              tclr: EvxColors.lightColor,
+                              controller: controller.lastName,
+                              feildcolor: EvxColors.a,
+                              labelcolor: EvxColors.darkPrimeryColor,
+                              suffix: null,
+                              text: "Enter your Lastame",
+                            ),
+                            SizedBox(height: Get.height * 0.01),
                             Text(
                               "Email Address",
                               style: TextStyle(
@@ -198,13 +232,13 @@ class _UserInfoState extends State<UserInfo> {
                             SizedBox(height: Get.height * 0.01),
                             textfield(
                               tclr: EvxColors.lightColor,
-                              controller: Email,
+                              controller: controller.email,
                               feildcolor: EvxColors.a,
                               labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
                               text: "Enter your Email Address",
                             ),
-                            SizedBox(height: Get.height * 0.02),
+                            SizedBox(height: Get.height * 0.01),
                             Text(
                               "Mobile ",
                               style: TextStyle(
@@ -215,16 +249,16 @@ class _UserInfoState extends State<UserInfo> {
                             ),
                             SizedBox(height: Get.height * 0.01),
                             Padding(
-                              padding: EdgeInsets.only(bottom: height / 10),
+                              padding: EdgeInsets.only(bottom: height / 12),
                               child: textfield(
                                 tclr: EvxColors.darkblueColor,
-                                controller: no,
+                                controller: controller.no,
                                 feildcolor: EvxColors.a,
                                 labelcolor: EvxColors.darkPrimeryColor,
                                 suffix: null,
                                 text: "Enter Mobile Number",
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

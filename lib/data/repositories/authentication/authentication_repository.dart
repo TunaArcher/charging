@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:charging/features/authentication/models/auth_model.dart';
 import 'package:charging/utils/constants/api_constants.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -42,8 +40,8 @@ class AuthenticationRepository extends GetxController {
 
   /// Function to Show Relevant Screen
   screenRedirect() async {
-
-    var token = deviceStorage.read('token') ?? null; // Todo:: handle case: if token expire
+    var token = deviceStorage.read('token') ??
+        null; // Todo:: handle case: if token expire
 
     if (token != null)
       Get.offAll(() => const HomeMenu());
@@ -56,13 +54,10 @@ class AuthenticationRepository extends GetxController {
   /// [PhoneAuthentication] - SignIn
   Future loginWithPhoneAndPassword(String phone, String password) async {
     try {
-      // dynamic data = {
-      //   'phone': phone,
-      //   'password': password
-      // };
+      // dynamic data = {'phone': phone, 'password': password};
 
       dynamic data = {
-        'phone': '000000000',
+        'phone': '111111111',
         'password': '1234test'
       }; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
@@ -71,6 +66,14 @@ class AuthenticationRepository extends GetxController {
       var authResponse = AuthModel.fromJson(response['data']);
 
       deviceStorage.write('token', authResponse.token);
+      deviceStorage.write('email', authResponse.email);
+      deviceStorage.write('username',
+          '${authResponse.firstname}' + " " + '${authResponse.lastname}');
+      deviceStorage.write('name', authResponse.firstname);
+      deviceStorage.write('lastname', authResponse.lastname);
+      deviceStorage.write('tel', authResponse.phone);
+      deviceStorage.write('id_user', authResponse.id);
+
       return authResponse;
     } catch (e) {
       // TODO:: Handle

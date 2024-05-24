@@ -42,6 +42,7 @@ class LoginController extends GetxController {
       if (!isConnected) {
         EvxFullScreenLoader.stopLoading();
         return;
+
       }
 
       // // Form Validation

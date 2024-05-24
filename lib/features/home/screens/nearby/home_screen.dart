@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    _generateMarkers();
+     _generateMarkers();
     super.initState();
   }
 
@@ -118,13 +118,13 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           /// -- Map
-          // _buildMap(),
+         _buildMap(),
 
           /// -- Search Box
-          _buildSearchBox(),
+         _buildSearchBox(),
 
           /// -- Slide
-          _buildChargingPointSlide(),
+        _buildChargingPointSlide(),
         ],
       ),
     );
@@ -516,7 +516,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             MainAxisAlignment.center,
                                         children: [
                                           GestureDetector(
-                                            onTap: () => Get.to(() => const ChargingPointStationScreen()),
+                                            onTap: () => Get.to(() =>
+                                                const ChargingPointStationScreen()),
                                             child: Container(
                                               height: height / 16,
                                               width: width / 1.8,
