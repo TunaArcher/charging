@@ -67,12 +67,13 @@ class AuthenticationRepository extends GetxController {
 
       deviceStorage.write('token', authResponse.token);
       deviceStorage.write('email', authResponse.email);
-      deviceStorage.write('username', '${authResponse.firstname}' + " " +'${authResponse.lastname}');
+      deviceStorage.write('username',
+          '${authResponse.firstname}' + " " + '${authResponse.lastname}');
       deviceStorage.write('name', authResponse.firstname);
       deviceStorage.write('lastname', authResponse.lastname);
-       deviceStorage.write('tel', authResponse.phone); 
-      deviceStorage.write('id_user', authResponse.id);  
-    
+      deviceStorage.write('tel', authResponse.phone);
+      deviceStorage.write('id_user', authResponse.id);
+
       return authResponse;
     } catch (e) {
       // TODO:: Handle

@@ -6,3 +6,4 @@ const String evxEndPoint = 'http://192.168.43.220:3000/api/v1'; // ต้อง�
 const String evxRegistration = evxEndPoint + '/auth/register';
 const String evxLogin = evxEndPoint + '/auth/login';
 const String evxUpdateProfile = evxEndPoint + '/profile/update_profile';
+const String evxGetProfile = evxEndPoint + '/profile/get_profile';

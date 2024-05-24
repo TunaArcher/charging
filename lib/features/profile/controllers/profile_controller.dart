@@ -75,8 +75,9 @@ class ProfileController extends GetxController {
 
     // Remove Loader
     EvxFullScreenLoader.stopLoading();
+    await ProfileRepository.instance.getProfileById(localStorage.read('id_user').toString());
 
     // Redirect
-    // await AuthenticationRepository.instance.screenRedirect();
+    await ProfileRepository.instance.screenRedirectProfile();
   }
 }
