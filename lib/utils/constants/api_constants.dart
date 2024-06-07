@@ -7,3 +7,4 @@ const String evxRegistration = evxEndPoint + '/auth/register';
 const String evxLogin = evxEndPoint + '/auth/login';
 const String evxUpdateProfile = evxEndPoint + '/profile/update_profile';
 const String evxGetProfile = evxEndPoint + '/profile/get_profile';
+const String evxUpdatePassword = evxEndPoint + '/profile/update_password';

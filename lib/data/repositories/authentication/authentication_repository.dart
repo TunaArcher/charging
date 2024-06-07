@@ -58,7 +58,7 @@ class AuthenticationRepository extends GetxController {
 
       dynamic data = {
         'phone': '111111111',
-        'password': '1234test'
+        'password': 'test1234'
       }; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
       var response = await EvxHttpHelper.post(evxLogin, data);
@@ -77,6 +77,8 @@ class AuthenticationRepository extends GetxController {
       return authResponse;
     } catch (e) {
       // TODO:: Handle
+
+      screenRedirect();
     }
   }
 
