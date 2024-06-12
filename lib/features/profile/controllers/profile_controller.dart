@@ -22,6 +22,10 @@ class ProfileController extends GetxController {
   final email = TextEditingController();
   final no = TextEditingController();
 
+  final oldpassword = TextEditingController();
+  final newpassword = TextEditingController();
+  final confnewpassword = TextEditingController();
+
   @override
   void onInit() {
     name.text = localStorage.read('name') ?? '';
@@ -75,7 +79,38 @@ class ProfileController extends GetxController {
 
     // Remove Loader
     EvxFullScreenLoader.stopLoading();
-    await ProfileRepository.instance.getProfileById(localStorage.read('id_user').toString());
+    await ProfileRepository.instance
+        .getProfileById(localStorage.read('id_user').toString());
+
+    // Redirect
+    await ProfileRepository.instance.screenRedirectProfile();
+  }
+
+  /// -- data pasword update
+  Future<void> updatePassword() async {
+    // Start Loading
+    EvxFullScreenLoader.openLoadingDialog(
+        'update profile...', EvxImages.docerAnimation);
+
+    // Check Internet Connectivity
+    final isConnected = await NetworkManager.instance.isConnected();
+    if (!isConnected) {
+      EvxFullScreenLoader.stopLoading();
+      return;
+    }
+
+    // update password
+    await ProfileRepository.instance.updatePasswordById(
+      localStorage.read('id_user').toString(),
+      oldpassword.text.trim(),
+      newpassword.text.trim(),
+      confnewpassword.text.trim(),
+    );
+
+    // Remove Loader
+    EvxFullScreenLoader.stopLoading();
+    await ProfileRepository.instance
+        .getProfileById(localStorage.read('id_user').toString());
 
     // Redirect
     await ProfileRepository.instance.screenRedirectProfile();

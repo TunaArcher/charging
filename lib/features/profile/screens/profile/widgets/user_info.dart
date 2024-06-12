@@ -1,4 +1,5 @@
 import 'package:charging/features/profile/controllers/profile_controller.dart';
+import 'package:charging/utils/popups/alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -24,7 +25,7 @@ class _UserInfoState extends State<UserInfo> {
   final localStorage = GetStorage();
   late String _username;
   late String _email;
-  
+
   @override
   void initState() {
     _username = localStorage.read('username') ?? '';
@@ -133,14 +134,13 @@ class _UserInfoState extends State<UserInfo> {
                   child: Stack(
                     children: [
                       InkWell(
-                        onTap: () {
-                          setState(
-                            () {
-                              controller.updateProfile();
-                              // Navigator.pop(context);
-                            },
-                          );
-                        },
+                        onTap: () => setState(
+                          () {
+                            EvxConfirmDalog.dialogboxConfirmInfo(context);
+                            //  controller.updateProfile();
+                            // Navigator.pop(context);
+                          },
+                        ),
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
@@ -200,6 +200,7 @@ class _UserInfoState extends State<UserInfo> {
                               feildcolor: EvxColors.a,
                               labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
+                              obscureText: false,
                               text: "Enter your Name",
                             ),
                             SizedBox(height: Get.height * 0.01),
@@ -218,6 +219,7 @@ class _UserInfoState extends State<UserInfo> {
                               feildcolor: EvxColors.a,
                               labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
+                              obscureText: false,
                               text: "Enter your Lastame",
                             ),
                             SizedBox(height: Get.height * 0.01),
@@ -236,6 +238,7 @@ class _UserInfoState extends State<UserInfo> {
                               feildcolor: EvxColors.a,
                               labelcolor: EvxColors.darkPrimeryColor,
                               suffix: null,
+                              obscureText: false,
                               text: "Enter your Email Address",
                             ),
                             SizedBox(height: Get.height * 0.01),
@@ -256,6 +259,7 @@ class _UserInfoState extends State<UserInfo> {
                                 feildcolor: EvxColors.a,
                                 labelcolor: EvxColors.darkPrimeryColor,
                                 suffix: null,
+                                obscureText: false,
                                 text: "Enter Mobile Number",
                               ),
                             ),

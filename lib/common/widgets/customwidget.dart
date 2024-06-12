@@ -78,7 +78,10 @@ appButton({Function()? onTap, String? title, Color? clr}) {
 
 //================================== Textfield ======================================
 
-textField({String? hinttext, String? labeltxt,}) {
+textField({
+  String? hinttext,
+  String? labeltxt,
+}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: width / 20),
     child: Container(
@@ -114,7 +117,12 @@ textField({String? hinttext, String? labeltxt,}) {
   );
 }
 
-CustomAppbar({String? centertext, bool? center, IconData? actionicon, Function()? onclick, double? redi}) {
+CustomAppbar(
+    {String? centertext,
+    bool? center,
+    IconData? actionicon,
+    Function()? onclick,
+    double? redi}) {
   return AppBar(
     elevation: 800,
     backgroundColor: Colors.white,
@@ -152,7 +160,16 @@ CustomAppbar({String? centertext, bool? center, IconData? actionicon, Function()
 
 // \\======================================================================================
 
-textfield({String? text, suffix, Color? labelcolor, feildcolor, Color? tclr, double? Width, TextEditingController? controller, Height}) {
+textfield(
+    {String? text,
+    suffix,
+    Color? labelcolor,
+    feildcolor,
+    Color? tclr,
+    double? Width,
+    TextEditingController? controller,
+    Height,
+    obscureText}) {
   return Container(
       height: Height,
       width: Width,
@@ -164,6 +181,7 @@ textfield({String? text, suffix, Color? labelcolor, feildcolor, Color? tclr, dou
       child: TextField(
         style: TextStyle(color: tclr),
         controller: controller,
+        obscureText: obscureText,
         decoration: InputDecoration(
           labelText: text,
           labelStyle: const TextStyle(
@@ -190,7 +208,11 @@ textfield({String? text, suffix, Color? labelcolor, feildcolor, Color? tclr, dou
 
 // \\=====================================================================
 
-Button({String? buttontext, Function()? onclick, double? Width, Color? buttoncolor}) {
+Button(
+    {String? buttontext,
+    Function()? onclick,
+    double? Width,
+    Color? buttoncolor}) {
   return GestureDetector(
     onTap: onclick,
     child: Container(
@@ -211,7 +233,12 @@ Button({String? buttontext, Function()? onclick, double? Width, Color? buttoncol
 
 //============================================================================================================
 
-appbare({String? tital, Color? txtclr, Color? iconclr, Color? butclr, Color? brclr}) {
+appbare(
+    {String? tital,
+    Color? txtclr,
+    Color? iconclr,
+    Color? butclr,
+    Color? brclr}) {
   return AppBar(
     title: Padding(
       padding: EdgeInsets.only(top: height / 90),
@@ -255,7 +282,16 @@ appbare({String? tital, Color? txtclr, Color? iconclr, Color? butclr, Color? brc
 
 //===============================================
 
-texfield({String? text, suffix, Color? labelcolor, Function()? ontap, feildcolor, double? Width, Height, TextEditingController? controller, String? Function(String?)? validator}) {
+texfield(
+    {String? text,
+    suffix,
+    Color? labelcolor,
+    Function()? ontap,
+    feildcolor,
+    double? Width,
+    Height,
+    TextEditingController? controller,
+    String? Function(String?)? validator}) {
   return Container(
     height: Height,
     width: Width,
@@ -288,4 +324,51 @@ texfield({String? text, suffix, Color? labelcolor, Function()? ontap, feildcolor
       validator: validator,
     ),
   );
+}
+
+textfieldPass(
+    {String? text,
+    suffix,
+    Color? labelcolor,
+    feildcolor,
+    Color? tclr,
+    double? Width,
+    TextEditingController? controller,
+    Height,
+    obscureText,
+    inkwell}) {
+  return Container(
+      height: Height,
+      width: Width,
+      padding: const EdgeInsets.symmetric(vertical: 1),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: feildcolor,
+      ),
+      child: TextField(
+        style: TextStyle(color: tclr),
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          suffixIcon: Padding(
+            padding: EdgeInsets.all(height / 50),
+            child: inkwell,
+          ),
+          labelText: text,
+          labelStyle: const TextStyle(
+            color: Colors.grey,
+            fontFamily: "Gilroy Medium",
+            fontSize: 15,
+          ),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.grey,
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
+      ));
 }

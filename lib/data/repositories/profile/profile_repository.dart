@@ -1,3 +1,4 @@
+import 'package:charging/features/authentication/models/pass_model.dart';
 import 'package:charging/features/authentication/models/auth_model.dart';
 import 'package:charging/features/personalization/models/user_model.dart';
 import 'package:charging/utils/constants/api_constants.dart';
@@ -65,4 +66,28 @@ class ProfileRepository extends GetxController {
       // TODO:: Handle
     }
   }
+
+
+   /// [] - change Password
+  Future updatePasswordById(
+      String id, String oldPass, String newPass, String confNewPass) async {
+    try {
+      dynamic data = {
+        'id': id,
+        'oldPass': oldPass,
+        'newPass': newPass,
+        'confNewPass': confNewPass,
+      };
+
+      var response = await EvxHttpHelper.post(evxUpdatePassword, data);
+
+      var updateResponse = PasswordModel.fromJson(response['data']);
+
+      return updateResponse;
+    } catch (e) {
+      // TODO:: Handle
+    }
+  }
+
+
 }
