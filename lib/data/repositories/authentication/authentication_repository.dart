@@ -57,8 +57,8 @@ class AuthenticationRepository extends GetxController {
       // dynamic data = {'phone': phone, 'password': password};
 
       dynamic data = {
-        'phone': '111111111',
-        'password': 'test1234'
+        'phone': '0903580757',
+        'password': '1234test'
       }; // ยูสนี้มีอยู่ใน DATABASE อยู่แล้ว
 
       var response = await EvxHttpHelper.post(evxLogin, data);
@@ -92,6 +92,30 @@ class AuthenticationRepository extends GetxController {
   //     // TODO:: Handle
   //   }
   // }
+
+  /// [] - Update Profile
+  Future registeNew(String name, String lasename, String password, String email,
+      String tel) async {
+    try {
+      dynamic data = {
+        'phone': tel,
+        'password': password,
+        'firstname': name,
+        'lastname': lasename,
+        'email': email,
+      };
+
+      // print(data);
+
+      var response = await EvxHttpHelper.post(evxRegistration, data);
+
+      var registerResponse = AuthModel.fromJson(response['data']);
+
+      return registerResponse;
+    } catch (e) {
+      // TODO:: Handle
+    }
+  }
 
   /* ---------------------------- Federated identity & social sign-in ---------------------------------*/
 

@@ -214,7 +214,7 @@ class _UserListSettingState extends State<UserListSetting> {
 
                 /// -- Logout
                 InkWell(
-                  onTap: () => controller.logout(),
+                  onTap: () => EvxConfirmDalog.dialogboxConfirmLogout(context),
                   child: Row(
                     children: [
                       Padding(
@@ -492,7 +492,7 @@ class _UserListSettingState extends State<UserListSetting> {
       _obscureTextConf = true;
       _validateConfNew = false;
       _validateNew = false;
-      _validateNew = false;
+      _validateOld = false;
       controller.oldpassword.text = '';
       controller.newpassword.text = '';
       controller.confnewpassword.text = '';
