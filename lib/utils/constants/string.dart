@@ -36,6 +36,8 @@ class EvxCustomStrings {
 
   static const String phone = 'Phone';
   static const String fullname = 'Full name';
+  static const String yourname = 'Name';
+  static const String yourlastname = 'Last name';
   static const String forgotpassword = 'Forgot Password?';
   static const String rememberme = 'Remember Me';
   static const String password = 'Password';
@@ -158,4 +160,6 @@ class EvxCustomStrings {
   static const String healp3 =
       'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden the middle of text';
   static const String ChangePassword = 'Change Password';
+  static const String createyour = 'Create Your';
+  static const String account_ = 'Account';
 }
