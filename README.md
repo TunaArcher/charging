@@ -1,16 +1,58 @@
-# charging
+# 🚗 Evx Charging
 
-Evx Charging
+Evx Charging เป็นแอปพลิเคชันสำหรับค้นหาสถานีชาร์จรถยนต์ไฟฟ้า (EV) ที่พัฒนาด้วย **Flutter** สำหรับฝั่ง Mobile Application และ **Node.js** สำหรับ API backend
 
-## Getting Started
+## 📌 คุณสมบัติของระบบ
+- 🔍 **ค้นหาสถานีชาร์จ** ได้แบบเรียลไทม์
+- 📍 **แสดงตำแหน่ง** ของสถานีชาร์จบนแผนที่
+- ⚡ **แสดงรายละเอียดจุดชาร์จ** (ประเภทของหัวชาร์จ, ค่าใช้จ่าย, ความพร้อมให้บริการ)
+- 📊 **ระบบรีวิวและให้คะแนน** สถานีชาร์จจากผู้ใช้งาน
+- 🔗 **เชื่อมต่อ API ภายนอก** เพื่อดึงข้อมูลสถานีชาร์จ
+- 👤 **ระบบบัญชีผู้ใช้** สำหรับบันทึกประวัติการใช้งานและสถานีชาร์จที่ชื่นชอบ
 
-This project is a starting point for a Flutter application.
+## 🏗 เทคโนโลยีที่ใช้
+### Frontend (Mobile Application)
+- **Flutter** (Dart)
+- **Google Maps API** (สำหรับแสดงแผนที่)
+- **Provider / Riverpod** (State Management)
 
-A few resources to get you started if this is your first Flutter project:
+### Backend (API)
+- **Node.js** (Express.js)
+- **MongoDB / PostgreSQL** (Database)
+- **JWT** (Authentication)
+- **RESTful API**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🔧 การติดตั้งและใช้งาน
+### 1️⃣ ติดตั้ง Mobile Application
+```sh
+# Clone โปรเจกต์
+git clone https://github.com/TunaArcher/charging.git
+cd charging
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# ติดตั้ง dependencies
+flutter pub get
+
+# Run บน Emulator หรือ Device จริง
+flutter run
+```
+
+### 2️⃣ ติดตั้ง Backend API อยู่อีก Repository -> https://github.com/TunaArcher/api.evx
+```sh
+# Clone โปรเจกต์ API
+cd backend
+
+# ติดตั้ง dependencies
+npm install
+
+# กำหนดค่าตัวแปรสภาพแวดล้อม
+cp .env.example .env
+
+# Run server
+npm start
+```
+
+## 📜 License
+โปรเจกต์นี้อยู่ภายใต้สัญญาอนุญาต MIT License - ดูไฟล์ [LICENSE](LICENSE) สำหรับรายละเอียดเพิ่มเติม
+
+---
+
